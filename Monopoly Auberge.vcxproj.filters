@@ -18,12 +18,12 @@
     <ClCompile Include="cartes-actions.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="carteAction.cpp">
+    <ClCompile Include="CarteAction.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="carteAction.h">
+    <ClInclude Include="CarteAction.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
