@@ -5,14 +5,28 @@
 
 using namespace std;
 
+void creationDeplacementsAction(int *deplacementsActions) {
+    deplacementsActions[0] = 0;
+    deplacementsActions[1] = 1;
+    deplacementsActions[2] = 2;
+    deplacementsActions[3] = 3;
+    deplacementsActions[4] = 4;
+    deplacementsActions[5] = 5;
+    deplacementsActions[6] = 6;
+    deplacementsActions[7] = 7;
+    deplacementsActions[8] = 8;
+    deplacementsActions[9] = 9;
 
-int main()
-{   
+}
+
+int main() {
     string titresActions[10];
-    int deplacementsActions[10];
+    int* deplacementsActions[10];
     int argentActions[10];
     int penalitesActions[10];
     string descriptionsActions[10];
+
+    creationDeplacementsAction(*deplacementsActions);
 
     titresActions[0] = "Titre 1";
     titresActions[1] = "Titre 2";
@@ -24,17 +38,6 @@ int main()
     titresActions[7] = "Titre 8";
     titresActions[8] = "Titre 9";
     titresActions[9] = "Titre 10";
-
-    deplacementsActions[0] = 0;
-    deplacementsActions[1] = 1;
-    deplacementsActions[2] = 2;
-    deplacementsActions[3] = 3;
-    deplacementsActions[4] = 4;
-    deplacementsActions[5] = 5;
-    deplacementsActions[6] = 6;
-    deplacementsActions[7] = 7;
-    deplacementsActions[8] = 8;
-    deplacementsActions[9] = 9;
 
     argentActions[0] = 0;
     argentActions[1] = 1;
@@ -79,21 +82,10 @@ int main()
 
     for (int i = 0; i < 10; i++) {
         cartesAction[i] = new CarteAction;
-        cartesAction[i]->initCarteAction(titresActions[i], argentActions[i], deplacementsActions[i], penalitesActions[i], descriptionsActions[i]);
+        cartesAction[i]->initCarteAction(titresActions[i], argentActions[i], *deplacementsActions[i], penalitesActions[i], descriptionsActions[i]);
         cartesAction[i]->afficherCarteAction();
     }
     
 
 
 }
-
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
