@@ -1,6 +1,8 @@
 #include <iostream>
 #include "CarteAction.h"
 #include <windows.h>
+#include <time.h>
+
 using namespace std;
 
 void color(int t, int f)
@@ -125,6 +127,23 @@ void creationDescriptionsAction(string descriptionsAmnesies[], string descriptio
     descriptionsPotCommun[9] = "Description Pot Commun 10";
 }
 
+void melangerCartes(CarteAction* cartes[]) {
+    const int MINIMUM = 0;
+    const int MAXIMUM = 9;
+    int nbRand1;
+    int nbRand2;
+    CarteAction* i;
+    srand(time(NULL));
+    for (int j = 0; j < 100; j++)
+    {
+        nbRand1 = (rand() % (MAXIMUM - MINIMUM + 1)) + MINIMUM;
+        nbRand2 = (rand() % (MAXIMUM - MINIMUM + 1)) + MINIMUM;
+        i = cartes[nbRand1];
+        cartes[nbRand1] = cartes[nbRand2];
+        cartes[nbRand2] = i;
+    }
+}
+
 int main() {
     string titresAmnesies[10];
     string titresPotCommun[10];
@@ -149,6 +168,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         cartesAmnesies[i] = new CarteAction;
         cartesAmnesies[i]->initCarteAction(titresAmnesies[i], argentAmnesies[i], deplacementsAmnesies[i], penalitesAmnesies[i], descriptionsAmnesies[i]);
+        //melangerCartes(cartesAmnesies);
         color(4, 0);
         cartesAmnesies[i]->afficherCarteAction();
         color(15, 0);
@@ -159,8 +179,10 @@ int main() {
     for (int i = 0; i < 10; i++) {
         cartesPotCommun[i] = new CarteAction;
         cartesPotCommun[i]->initCarteAction(titresPotCommun[i], argentPotCommun[i], deplacementsPotCommun[i], penalitesPotCommun[i], descriptionsPotCommun[i]);
+        //melangerCartes(cartesPotCommun);
         color(9, 0);
         cartesPotCommun[i]->afficherCarteAction();
         color(15, 0);
     }
+
 }
