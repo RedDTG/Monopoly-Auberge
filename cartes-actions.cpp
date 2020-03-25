@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void creationDeplacementsAction(int *deplacementsActions) {
+void creationDeplacementsAction(int deplacementsActions[]) {
     deplacementsActions[0] = 0;
     deplacementsActions[1] = 1;
     deplacementsActions[2] = 2;
@@ -21,12 +21,12 @@ void creationDeplacementsAction(int *deplacementsActions) {
 
 int main() {
     string titresActions[10];
-    int* deplacementsActions[10];
+    int deplacementsActions[10];
     int argentActions[10];
     int penalitesActions[10];
     string descriptionsActions[10];
 
-    creationDeplacementsAction(*deplacementsActions);
+    creationDeplacementsAction(deplacementsActions);
 
     titresActions[0] = "Titre 1";
     titresActions[1] = "Titre 2";
@@ -82,7 +82,7 @@ int main() {
 
     for (int i = 0; i < 10; i++) {
         cartesAction[i] = new CarteAction;
-        cartesAction[i]->initCarteAction(titresActions[i], argentActions[i], *deplacementsActions[i], penalitesActions[i], descriptionsActions[i]);
+        cartesAction[i]->initCarteAction(titresActions[i], argentActions[i], deplacementsActions[i], penalitesActions[i], descriptionsActions[i]);
         cartesAction[i]->afficherCarteAction();
     }
     
