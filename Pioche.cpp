@@ -1,6 +1,11 @@
 #include "Pioche.h"
 #include <time.h>
 
+Pioche::Pioche() {
+
+
+}
+
 vector<CarteAction*>* Pioche::getPioche() { return this->pioche; }
 vector<CarteAction*>* Pioche::getDefausse() { return this->defausse; }
 
@@ -28,4 +33,8 @@ void Pioche::afficherPioche() {
         cout << "Effet de deplacement : " << this->getPioche()->operator[](i)->getEffetDeplacement() << "     Effet d'argent : " << this->getPioche()->operator[](i)->getEffetArgent() << "     Penalite : " << this->getPioche()->operator[](i)->getPenalite() << endl;
         cout << endl;
     }
+}
+
+void Pioche::ajoutCarte(CarteAction* carte) {
+    this->pioche->push_back(carte);
 }

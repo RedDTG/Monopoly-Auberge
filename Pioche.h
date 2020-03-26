@@ -10,8 +10,10 @@ private:
 	vector<CarteAction*>* defausse;
 
 public:
+	Pioche();
 	vector<CarteAction*>* getPioche();
 	vector<CarteAction*>* getDefausse();
+	void ajoutCarte(CarteAction*);
 	void melangerPioche();
 	void afficherPioche();
 };
