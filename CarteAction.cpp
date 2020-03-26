@@ -1,7 +1,7 @@
 #include "CarteAction.h"
 
 
-void CarteAction::initCarteAction(string titre, int argent, int deplacement, int penalite, string description) {
+CarteAction::CarteAction(string titre, int argent, int deplacement, int penalite, string description) {
 	this->titre = titre;
 	this->effetArgent = argent;
 	this->effetDeplacement = deplacement;

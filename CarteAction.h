@@ -13,7 +13,7 @@ private:
 	string description;
 
 public:
-	void initCarteAction(string titre, int argent, int deplacement, int penalite, string description);
+	CarteAction(string titre, int argent, int deplacement, int penalite, string description);
 
 	string getTitre();
 	int getEffetDeplacement();
