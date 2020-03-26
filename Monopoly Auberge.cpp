@@ -2,10 +2,10 @@
 //
 
 #include <iostream>
-
+#include"CartesPropriete.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::cout << "Coucou\n";
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
