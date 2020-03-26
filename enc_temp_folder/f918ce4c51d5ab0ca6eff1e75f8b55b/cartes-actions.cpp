@@ -33,16 +33,16 @@ int main() {
     Pioche* piochePotCommun = new Pioche;
 
     piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
-    piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
-    piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
-    piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
-    piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
+    //piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
+    //piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
+    //piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
+    //piocheAmnesies->getPioche()->push_back(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
   
-    piochePotCommun->getPioche()->push_back(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
-    piochePotCommun->getPioche()->push_back(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
-    piochePotCommun->getPioche()->push_back(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
-    piochePotCommun->getPioche()->push_back(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
-    piochePotCommun->getPioche()->push_back(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
+   // piochePotCommun->getPioche()->push_back(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
+    //piochePotCommun->getPioche()->push_back(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
+    //piochePotCommun->getPioche()->push_back(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
+    //piochePotCommun->getPioche()->push_back(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
+    //piochePotCommun->getPioche()->push_back(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
 
     color(4, 0);
     piocheAmnesies->afficherPioche();
