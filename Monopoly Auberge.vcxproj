@@ -147,7 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Monopoly Auberge.cpp" />
+    <ClCompile Include="CarteAction.cpp" />
+    <ClCompile Include="cartes-actions.cpp" />
+    <ClCompile Include="Pioche.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CarteAction.h" />
+    <ClInclude Include="Pioche.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
