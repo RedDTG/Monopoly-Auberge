@@ -17,4 +17,5 @@ public:
 	void afficherPioche();
 	void tirerUneCarte();
 	void afficherDefausse();
+	void reinitPioche();
 };
