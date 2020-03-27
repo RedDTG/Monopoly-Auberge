@@ -32,24 +32,33 @@ int main() {
     piochePotCommun->melangerPioche();
     piocheAmnesie->melangerPioche();
 
-    color(4, 0);
-    piocheAmnesie->afficherPioche();
-    cout << "\n\n\n" << endl;
-    color(9, 0);
-    piochePotCommun->afficherPioche();
-    color(15, 0);
+    int r;
 
-    piocheAmnesie->tirerUneCarte();
+    while (true)
+    {
+        cout << "1 : Afficher la pioche Amnesie | 2 : Tirer une carte Amnesie | 3 : Afficher la defausse" << endl;
+        cin >> r;
 
-    cout << "\n\n\n" << endl;
+        if (r == 1) {
+            color(4, 0);
+            piocheAmnesie->afficherPioche();
+            cout << "\n\n\n" << endl;
+            /* color(9, 0);
+             piochePotCommun->afficherPioche();*/
+            color(15, 0);
+        }
+
+        else if (r == 2) {
+            piocheAmnesie->tirerUneCarte();
+            cout << "\n\n\n" << endl;
+        }
+
+        else if (r == 3) {
+            piocheAmnesie->afficherDefausse();
+            cout << "\n\n\n" << endl;
+        }
+    }
     
-    piocheAmnesie->afficherDefausse();
-
-    cout << "\n\n\n" << endl;
-    color(4, 0);
-    piocheAmnesie->afficherPioche();
-    color(15, 0);
-
     delete piocheAmnesie;
     delete piochePotCommun;
 
