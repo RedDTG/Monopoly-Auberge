@@ -1,13 +1,10 @@
 #include "Pioche.h"
 #include <time.h>
 
-Pioche::Pioche() {
-
-
-}
-
-vector<CarteAction*>* Pioche::getPioche() { return this->pioche; }
-vector<CarteAction*>* Pioche::getDefausse() { return this->defausse; }
+//Pioche::Pioche() {
+//
+//
+//}
 
 void Pioche::melangerPioche() {
     int nbRand1;
@@ -15,26 +12,26 @@ void Pioche::melangerPioche() {
     CarteAction* i;
     srand(time(NULL));
 
-    for (int j = 0; j < (getPioche()->size()*10); j++)
+    for (int j = 0; j < (pioche.size()*10); j++)
     {
-        nbRand1 = rand() % getPioche()->size();
-        nbRand2 = rand() % getPioche()->size();
-        i = getPioche()->operator[](nbRand1);
-        getPioche()->operator[](nbRand1) = getPioche()->operator[](nbRand2);
-        getPioche()->operator[](nbRand2) = i;
+        nbRand1 = rand() % pioche.size();
+        nbRand2 = rand() % pioche.size();
+        i = pioche.operator[](nbRand1);
+        pioche.operator[](nbRand1) = pioche[nbRand2];
+        pioche.operator[](nbRand2) = i;
     }
 }
 
 void Pioche::afficherPioche() {
 
-    for (int i = 0; i < getPioche()->size(); i++) {
-        cout << "## " << this->getPioche()->operator[](i)->getTitre() << " ##" << endl;
-        cout << this->getPioche()->operator[](i)->getDescription() << endl;
-        cout << "Effet de deplacement : " << this->getPioche()->operator[](i)->getEffetDeplacement() << "     Effet d'argent : " << this->getPioche()->operator[](i)->getEffetArgent() << "     Penalite : " << this->getPioche()->operator[](i)->getPenalite() << endl;
+    for (int i = 0; i < pioche.size(); i++) {
+        cout << "## " << this->pioche.operator[](i)->getTitre() << " ##" << endl;
+        cout << this->pioche.operator[](i)->getDescription() << endl;
+        cout << "Effet de deplacement : " << this->pioche.operator[](i)->getEffetDeplacement() << "     Effet d'argent : " << this->pioche.operator[](i)->getEffetArgent() << "     Penalite : " << this->pioche.operator[](i)->getPenalite() << endl;
         cout << endl;
     }
 }
 
 void Pioche::ajoutCarte(CarteAction* carte) {
-    this->pioche->push_back(carte);
+    this->pioche.push_back(carte);
 }

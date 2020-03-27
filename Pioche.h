@@ -6,13 +6,12 @@ using namespace std;
 class Pioche
 {
 private:
-	vector<CarteAction*>* pioche;
-	vector<CarteAction*>* defausse;
+	vector<CarteAction*> pioche;
+	vector<CarteAction*> defausse;
 
 public:
-	Pioche();
-	vector<CarteAction*>* getPioche();
-	vector<CarteAction*>* getDefausse();
+	//Pioche();
+
 	void ajoutCarte(CarteAction*);
 	void melangerPioche();
 	void afficherPioche();

@@ -29,14 +29,14 @@ void melangerCartes(vector<CarteAction*>* cartes) {
 }
 
 int main() {
-    Pioche* piocheAmnesies = new Pioche;
+    Pioche* piocheAmnesie = new Pioche;
     Pioche* piochePotCommun = new Pioche;
 
-    this->pioche->push_back(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
-    this->pioche->push_back(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
-    this->pioche->push_back(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
-    this->pioche->push_back(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
-    this->pioche->push_back(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
+    piocheAmnesie->ajoutCarte(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
+    piocheAmnesie->ajoutCarte(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
+    piocheAmnesie->ajoutCarte(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
+    piocheAmnesie->ajoutCarte(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
+    piocheAmnesie->ajoutCarte(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
 
     piochePotCommun->ajoutCarte(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
     piochePotCommun->ajoutCarte(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
@@ -44,13 +44,18 @@ int main() {
     piochePotCommun->ajoutCarte(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
     piochePotCommun->ajoutCarte(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
 
+    piochePotCommun->melangerPioche();
+    piocheAmnesie->melangerPioche();
+
     color(4, 0);
-    piocheAmnesies->afficherPioche();
+    piocheAmnesie->afficherPioche();
     cout << "\n\n\n" << endl;
     color(9, 0);
     piochePotCommun->afficherPioche();
     color(15, 0);
 
-    delete piocheAmnesies;
+    delete piocheAmnesie;
     delete piochePotCommun;
+
+    return 0;
 }
