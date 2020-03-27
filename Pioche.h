@@ -15,4 +15,6 @@ public:
 	void ajoutCarte(CarteAction*);
 	void melangerPioche();
 	void afficherPioche();
+	void tirerUneCarte();
+	void afficherDefausse();
 };

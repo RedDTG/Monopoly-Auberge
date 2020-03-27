@@ -12,23 +12,8 @@ void color(int t, int f)
     SetConsoleTextAttribute(H, f * 16 + t);
 }
 
-void melangerCartes(vector<CarteAction*>* cartes) {
-    int nbRand1;
-    int nbRand2;
-    CarteAction* i;
-    srand(time(NULL));
-
-    for (int j = 0; j < 100; j++)
-    {
-        nbRand1 = rand() % cartes->size();
-        nbRand2 = rand() % cartes->size();
-        i = cartes->operator[](nbRand1);
-        cartes->operator[](nbRand1) = cartes->operator[](nbRand2);
-        cartes->operator[](nbRand2) = i;
-    }
-}
-
 int main() {
+    srand(time(NULL));
     Pioche* piocheAmnesie = new Pioche;
     Pioche* piochePotCommun = new Pioche;
 
@@ -52,6 +37,17 @@ int main() {
     cout << "\n\n\n" << endl;
     color(9, 0);
     piochePotCommun->afficherPioche();
+    color(15, 0);
+
+    piocheAmnesie->tirerUneCarte();
+
+    cout << "\n\n\n" << endl;
+    
+    piocheAmnesie->afficherDefausse();
+
+    cout << "\n\n\n" << endl;
+    color(4, 0);
+    piocheAmnesie->afficherPioche();
     color(15, 0);
 
     delete piocheAmnesie;
