@@ -10,6 +10,14 @@ CartePropriete::CartePropriete(string nom, int prixAchat, int loyer, string Nomc
 
 }
 
+void CartePropriete::afficherCarteProp(CartePropriete* tableauProp[28])
+{
+	cout << "Nom de la carte : " << this->nom << endl;
+	cout <<"Prix de la propriété: "<<this->prixAchat << endl;
+	cout << "Prix du loyer : " << this->loyer << " | Type de la propriété : " << this->type << " |  Couleur : " << this->Nomcouleur << endl;
+	cout << endl;
+}
+
 
 
 void creaCarteProp() {
@@ -45,7 +53,10 @@ void creaCarteProp() {
 	tableauProp->push_back(new CartePropriete("Nom Prop 27", 350, 35, "Bleu foncé", 1));
 	tableauProp->push_back(new CartePropriete("Nom Prop 28", 400, 50, "Bleu foncé", 1));
 
-
+	//Afficher les cartes
+	for (int i = 0; i < 28; i++) {
+		tableauProp[i];
+	}
 
 }
 

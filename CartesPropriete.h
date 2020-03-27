@@ -30,9 +30,7 @@ public:
 		this->prixAchat = prixAchat;
 	}
 
-	void AfficherCarteProp() {
-		cout << this->nom << endl;
-	}
+	void afficherCarteProp(CartePropriete* tableauProp[28]);
 
 
 };
