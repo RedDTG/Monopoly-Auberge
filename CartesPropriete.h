@@ -19,18 +19,9 @@ private:
 
 
 public:
-	CartePropriete(string nom, int prixAchat, int loyer, string Nomcouleur, int type);
-	void initCarteProp(string nom, int prixAchat, int loyer, string Nomcouleur, int type) {
-		this->nom = nom;
-		this->loyer = loyer;
-		this->Nomcouleur = Nomcouleur;
-		this->proprietaire = 0;
-		this->type = type;
-		this->idcouleur = 0;
-		this->prixAchat = prixAchat;
-	}
+	CartePropriete(string nom, int prixAchat, int loyer, string Nomcouleur, int type, int idcouleur);
 
-	void afficherCarteProp(CartePropriete* tableauProp[28]);
+	void afficherCarteProp();
 
 
 };
