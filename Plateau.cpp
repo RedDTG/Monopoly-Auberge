@@ -1,7 +1,10 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
-Class Grille{
+#include "plateau.h"
+#include <vector>
+
+class Grille{
 	private:
 		int largeur = 8;
 		int hauteur = 5;
