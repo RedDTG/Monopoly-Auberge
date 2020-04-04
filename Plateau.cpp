@@ -1,27 +1,19 @@
 #include <algorithm>
 #include <string>
-#include <iomanip>
+#include <iostream>
 #include "plateau.h"
-#include <vector>
 
-class Grille{
-	private:
-		int largeur = 8;
-		int hauteur = 5;
-		vector<int> tableau;
+class Grille {
+private:
+	vector<Case*> plateau;
 
 
-	public:
-		Grille(int largeur, int hauteur) {
-			this->largeur = largeur;
-			this->hauteur = hauteur;
-			tableau.resize(largeur * hauteur, 0);
-		}
+public:
 
-		int recuperer(int x, int y) {
-			return grille[y * largeur + x];
-		}
-}
+	int recupererCase(int x) {
+		return this->plateau;
+	}
+};
 
 int main()
 {
