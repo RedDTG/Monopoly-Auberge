@@ -4,27 +4,28 @@
 #include <random>
 using namespace std;
 
-//Pioche::Pioche() {
-//
-//
-//}
+PiocheAmnesie::PiocheAmnesie() {
+    ajoutCarte(new CarteAction("Titre 1", 100, 1, 0, "Description 1"));
+    ajoutCarte(new CarteAction("Titre 2", 100, 1, 0, "Description 2"));
+    ajoutCarte(new CarteAction("Titre 3", 100, 1, 0, "Description 3"));
+    ajoutCarte(new CarteAction("Titre 4", 100, 1, 0, "Description 4"));
+    ajoutCarte(new CarteAction("Titre 5", 100, 1, 0, "Description 5"));
+    melangerPioche();
+}
+
+PiochePotCommun::PiochePotCommun() {
+    ajoutCarte(new CarteAction("Titre 1", 100, 3, 0, "Description 1"));
+    ajoutCarte(new CarteAction("Titre 2", 100, 3, 0, "Description 2"));
+    ajoutCarte(new CarteAction("Titre 3", 100, 3, 0, "Description 3"));
+    ajoutCarte(new CarteAction("Titre 4", 100, 3, 0, "Description 4"));
+    ajoutCarte(new CarteAction("Titre 5", 100, 3, 0, "Description 5"));
+    melangerPioche();
+}
+
+vector<CarteAction*> Pioche::getPioche() { return pioche; }
 
 void Pioche::melangerPioche() {
-    //int nbRand1;
-    //int nbRand2;
-    //CarteAction* i;
-
-    //for (int j = 0; j < (pioche.size()*10); j++)
-    //{
-    //    nbRand1 = rand() % pioche.size();
-    //    nbRand2 = rand() % pioche.size();
-    //    i = pioche[nbRand1];
-    //    pioche[nbRand1] = pioche[nbRand2];
-    //    pioche[nbRand2] = i;
-    //}
-
     random_shuffle(pioche.begin(), pioche.end());
-
 }
 
 void Pioche::afficherPioche() {
@@ -70,5 +71,5 @@ void Pioche::reinitPioche() {
     this->pioche = this->defausse;
     melangerPioche();
     this->defausse.clear();
-    cout << "La pioche a été re-mélangée !" << endl;
+    cout << "La pioche a ete re-melangee !" << endl;
 }
