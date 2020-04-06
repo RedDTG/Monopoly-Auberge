@@ -20,4 +20,5 @@ void CarteAction::afficherCarteAction() {
 	cout << this->description << endl;
 	cout << "Effet de deplacement : " << this->effetDeplacement << "     Effet d'argent : " << this->effetArgent << "     Penalite : " << this->penalite << endl;
 	cout << endl;
+
 }
