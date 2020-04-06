@@ -1,4 +1,4 @@
-#include "dés.h"
+#include "des.h"
 #include <string>
 #include <iostream>
 #include <ctime>
@@ -6,12 +6,12 @@
 #include <cstdlib>
 using namespace std;
 
-dés::dés()
+des::des()
 {
 	face = 6;
 }
 
-int dés::jetDés()
+int des::jetDes()
 {
 	int roll = 0;
 	roll = rand() % face + 1;

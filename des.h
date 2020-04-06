@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 using namespace std;
-class dés
+class des
 {
 public:
-	dés();
+	des();
 
-	int jetDés();
+	int jetDes();
 
 protected:
 

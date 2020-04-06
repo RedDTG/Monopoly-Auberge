@@ -2,12 +2,23 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#include <vector>
+#include <windows.h>
+#include <time.h>
 using namespace std;
-Joueur::Joueur()
+
+
+void color(int t, int f)
+{
+    HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H, f * 16 + t);
+}
+
+Joueur::Joueur(int couleur)
 {
     cagnotte = 1500;
     this->nom = nom;
+    this->couleur = couleur + 1;
 }
 
 Joueur::~Joueur()
@@ -18,6 +29,11 @@ Joueur::~Joueur()
 string Joueur::getNom()
 {
     return nom;
+}
+
+int Joueur::getLocation()
+{
+    return location;
 }
 
 void Joueur::choisir_nom()
@@ -58,12 +74,31 @@ void Joueur::setCagnotte()
 
 }
 
+void Joueur::setLocation()
+{
+
+}
+
 int Joueur::getCagnotte()
 {
     return cagnotte;
 }
 
+int Joueur::getLocation()
+{
+    return location;
+}
+
+/*void Joueur::cartePropj()
+{
+    vector<CartePropriete*> MesProps; 
+
+}
+*/
+
 void Joueur::afficher()
 {
+    color(this->couleur, 0);
     cout << "Nom:"<<this->nom << endl;
+    cout << "Cagnotte : " << this->cagnotte << endl;
 }
