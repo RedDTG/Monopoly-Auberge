@@ -3,12 +3,17 @@
 
 #include <iostream>
 #include"CartesPropriete.h"
-/*int main()
+#include "Bot.h"
+using namespace std;
+int main()
 {
-    std::cout << "Coucou\n";
-        
+    cout << "Coucou\n";
+    //CartePropriete::CreaCarteProp;
+    Bot* nouveauBot = new Bot(0);
+    nouveauBot->choisir_nombre();
 }
-*/
+
+
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
 
