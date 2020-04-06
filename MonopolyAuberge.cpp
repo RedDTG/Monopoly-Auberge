@@ -4,6 +4,7 @@
 #include <time.h>
 #include <vector>
 #include "Pioche.h"
+#include"CartesPropriete.h"
 using namespace std;
 
 void color(int t, int f)
