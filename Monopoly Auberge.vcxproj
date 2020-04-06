@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CarteAction.cpp" />
-    <ClCompile Include="cartes-actions.cpp" />
+    <ClCompile Include="MonopolyAuberge.cpp" />
     <ClCompile Include="Pioche.cpp" />
   </ItemGroup>
   <ItemGroup>
