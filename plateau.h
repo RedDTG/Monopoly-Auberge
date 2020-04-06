@@ -7,6 +7,7 @@ class plateau
 {
 private:
 	vector<Case*> tableau;
+	vector<string> tabPos;
 
 
 public:

@@ -1,5 +1,11 @@
 #include "Case.h"
+#include "carteAction.h"
 
 Case::Case() {
-	this->effetArgent = -100;
+	
+}
+
+CaseAmnesie::actionCase(Joueur*) {
+	cout << "Vous piochez une carte Amnesie !" << endl;
+	piocheAmnesie->tirerUneCarte;
 }

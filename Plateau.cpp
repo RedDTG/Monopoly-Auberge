@@ -7,37 +7,48 @@ using namespace std;
 
 plateau::plateau() {
 	Case* uneCase = new Case();
-	this->tableau[0] = uneCase;
+	this->tableau.push_back(uneCase);
 }
 
 
 void plateau::afficherPlateau() {
 	cout << "\n\n\n" << endl;
-	cout << "     +----------------------------------------------------------+         +-----------------------+ " << endl;
-	cout << "     |BALADE| Rg | ?? | Rg | Rg |CHEZ| Ja | Ja |Bcme| Ja |RETARD|         |        LEGENDE        | " << endl;
-	cout << "     | PONT |    |    |    |    |DHB |    |    |    |    |      |         +-----------------------+ " << endl;
-	cout << "     |------+----+----+----+----+----+----+----+----+----+------|         | ?? : Amnesie          | " << endl;
-	cout << "     |  Or  |                                            |  Ve  |         | PC : Pot Commun       | " << endl;
-	cout << "     |------+                                            +------|         | PE : Pack EPSI        | " << endl;
-	cout << "     |  Or  |                                            |  Ve  |         | BDE : Taxe BDE        | " << endl;
-	cout << "     |------+                                            +------|         |                       | " << endl;
-	cout << "     |  PC  |                                            |  PC  |         | Ma : Prop. Marron     | " << endl;
-	cout << "     |------+                                            +------|         | Bc : Prop. Bleue Ciel | " << endl;
-	cout << "     |  Or  |                                            |  Ve  |         | Rs : Prop Rose        | " << endl;
-	cout << "     |------+                                            +------|         | Or : Prop. Orange     | " << endl;
-	cout << "     |WARHSE|                                            |O'BERJ|         | Rg : Prop. Rouge      | " << endl;
-	cout << "     |------+                                            +------|         | Ja : Porp. Jaune      | " << endl;
-	cout << "     |  Rs  |                                            |  ??  |         | Ve : Prop. Verte      | " << endl;
-	cout << "     |------+                                            +------|         | Bn : Prop. Bleue Nuit | " << endl;
-	cout << "     |  Rs  |                                            |  Bn  |         |                       | " << endl;
-	cout << "     |------+                                            +------|         | MyLB : Boite ki apren | " << endl;
-	cout << "     | MyLB |                                            | BDE  |         | Bcme : Beecome        | " << endl;
-	cout << "     |------+                                            +------|         |                       | " << endl;
-	cout << "     |  Rs  |                                            |  Bn  |         | EPSI : EPSI           | " << endl;
-	cout << "     |------+----+----+----+----+----+----+----+----+----+------|         | WARHSE : Warehouse    | " << endl;
-	cout << "     |ADMIN | Bc | Bc | ?? | Bc |EPSI| PE | Ma | PC | Ma | <--- |         | CHEZ DHB : Chez DHB   | " << endl;
-	cout << "     |      |    |    |    |    |    |    |    |    |    | START|         | O'BERJ : l'Auberge    | " << endl;
-	cout << "     +----------------------------------------------------------+         +-----------------------+ " << endl;
+	cout << "     +-------------------------------------------------------------------------------------------+     " << endl;
+	cout << "     | BALADE  | Ligne |Amnesie| Ligne | Ligne | CHEZ  |Katorza| Pathe |Beecome| Pathe | ARRIVEE |     " << endl;
+	cout << "     |  PONT   |  C5   |  ???  |   4   |   1   |  DHB  |Cinema |Gaumont|       |Atlntis|EN RETARD|     " << endl;
+	cout << "     |         |       |       |       |       |       |       |       |       |       |         |     " << endl;
+	cout << "     |---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+---------|     " << endl;
+	cout << "     |   KFC   |                                                                       |Game Over|     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |T. Burger|                                                                       |Tabarnak |     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |Pot Comm.|                                                                       |Pot Comm.|     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     | O'Tacos |                                                                       |Meltdown |     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |WAREHOUSE|                                                                       |L'AUBERGE|     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |Salle GC |                                                                       | Amnesie |     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |Cafeteria|                                                                       |  MyDIL  |     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |MyLearBox|                                                                       |Taxe BDE |     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+                                                                       +---------|     " << endl;
+	cout << "     |CoWorking|                                                                       |Salle 219|     " << endl;
+	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+---------|     " << endl;
+	cout << "     |         |Debote |Brioche|Amnesie| Coeur | EPSI  | Pack  | Inter |  Pot  |Carrouf|  START  |     " << endl;
+	cout << "     |  ADMIN  |       | Dorée |  ???  |de ble |       | EPSI  |       |Commun |       | <------ |     " << endl;
+	cout << "     |         |       |       |       |       |       |       |       |       |       |         |     " << endl;
+	cout << "     +-------------------------------------------------------------------------------------------+     " << endl;
 	cout << "\n\n\n" << endl;
 }
 
