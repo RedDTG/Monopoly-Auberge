@@ -15,11 +15,11 @@ int main()
 
     nJoueur->afficher();
 
-  /*  vector<Joueur*> Listj;
+    vector<Joueur*> Listj;
     for (int i = 0; i < Listj.size(); i++) {
         Listj[i]->afficher();
     }
-    */
+    
 
 
     return 0;

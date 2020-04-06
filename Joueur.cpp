@@ -14,7 +14,7 @@ void color(int t, int f)
     SetConsoleTextAttribute(H, f * 16 + t);
 }
 
-Joueur::Joueur(int couleur)
+Joueur::Joueur()
 {
     cagnotte = 1500;
     this->nom = nom;
@@ -31,9 +31,9 @@ string Joueur::getNom()
     return nom;
 }
 
-int Joueur::getLocation()
+int Joueur::getLocalisation()
 {
-    return location;
+    return localisation;
 }
 
 void Joueur::choisir_nom()
@@ -59,22 +59,16 @@ void Joueur::choisir_nom()
 
 }
 
-void Joueur::setPion()
-{
 
-}
 
-void Joueur::setNomPion()
-{
 
-}
 
 void Joueur::setCagnotte()
 {
 
 }
 
-void Joueur::setLocation()
+void Joueur::setLocalisation()
 {
 
 }
@@ -84,17 +78,18 @@ int Joueur::getCagnotte()
     return cagnotte;
 }
 
-int Joueur::getLocation()
+int Joueur::getLocalisation()
 {
-    return location;
+    return localisation;
 }
 
 /*void Joueur::cartePropj()
 {
-    vector<CartePropriete*> MesProps; 
+    //vector<CartePropriete*> MesProps; 
 
 }
 */
+
 
 void Joueur::afficher()
 {
