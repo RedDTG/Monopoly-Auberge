@@ -12,5 +12,28 @@ class List
 	private:
 
 
+<<<<<<< HEAD:List.h
 };
 
+=======
+	void ajoutCarte(CarteAction*);
+	void melangerPioche();
+	void afficherPioche();
+	void tirerUneCarte();
+	void afficherDefausse();
+	void reinitPioche();
+	vector<CarteAction*> getPioche();
+};
+
+class PiocheAmnesie: public Pioche
+{
+public:
+	PiocheAmnesie();
+};
+
+class PiochePotCommun : public Pioche
+{
+public:
+	PiochePotCommun();
+};
+>>>>>>> master:Pioche.h
