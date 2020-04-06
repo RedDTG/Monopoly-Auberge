@@ -2,10 +2,20 @@
 //
 
 #include <iostream>
+#include <vector>
+#include "plateau.h"
+//#include "Case.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+	plateau* plateauJ = new plateau;
+
+	plateauJ->afficherPlateau();
+
+
+	return 0;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage

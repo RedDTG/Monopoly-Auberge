@@ -7,7 +7,7 @@ using namespace std;
 
 plateau::plateau() {
 	Case* uneCase = new Case();
-	this->tableau[0] = uneCase;
+	this->tableau.operator[](0) = uneCase;
 }
 
 

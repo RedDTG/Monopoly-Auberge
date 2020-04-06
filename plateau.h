@@ -1,17 +1,19 @@
 #pragma once
 #include <vector>
+#include "Case.h"
+using namespace std;
 
 class plateau
 {
 private:
-	vector<int> plateau;
+	vector<Case*> tableau;
 
 
 public:
 
-	int recuperer(int x, int y) {
-		return plateau[x];
-	}
+	plateau();
+	void afficherPlateau();
+
 };
 
 
