@@ -28,20 +28,13 @@ Joueur::Joueur(vector<Joueur*>* listeJoueurs)
     system("cls");
 }
 
-string Joueur::getNom()
-{
-    return nom;
-}
+string Joueur::getNom() { return this->nom; }
 
-int Joueur::getLocalisation()
-{
-    return localisation;
-}
+int Joueur::getLocalisation() { return this->localisation; }
 
-void Joueur::setCagnotte(int effetArgent)
-{
-    this->cagnotte = cagnotte + effetArgent;
-}
+int Joueur::getPenalite() { return this->penalite; }
+
+void Joueur::setCagnotte(int effetArgent) { this->cagnotte = cagnotte + effetArgent; }
 
 void Joueur::addLocalisation(int effetDeplacement)
 {
@@ -65,20 +58,13 @@ void Joueur::addLocalisation(int effetDeplacement)
     }
 }
 
-void Joueur::setLocalisation(int localisation)
-{
-    this->localisation = localisation;
-}
+void Joueur::setLocalisation(int localisation) { this->localisation = localisation; }
 
-
-int Joueur::getCagnotte()
-{
-    return cagnotte;
-}
+int Joueur::getCagnotte() { return cagnotte; }
 
 void Joueur::setPenalite(int penalite)
 {
-
+    this->setPenalite(penalite);
 }
 
 
@@ -96,3 +82,5 @@ void Joueur::afficher()
     cout << "Nom:"<<this->nom << endl;
     cout << "Cagnotte : " << this->cagnotte << endl;
 }
+
+Bot::Bot() : Joueur(listeJoueurs) {}
