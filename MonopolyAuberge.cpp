@@ -51,7 +51,7 @@ int main() {
             while (nbBot < (6-listeJoueurs->size())) {
                 cout << "Combien de bots voulez vous ajouter : ";
                 cin >> nbBot;
-                if (nbBot < (6 - listeJoueurs->size())) {
+                if (nbBot > (6 - listeJoueurs->size())) {
                     cout << "\nLe nombre de joueurs maximal est de 6 joueurs. Merci d'entrer moins de bots !\n" << endl;
                 }
                 //else

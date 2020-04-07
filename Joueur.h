@@ -31,11 +31,21 @@ private:
     string nom;
     int cagnotte;
     int numero;
-    
+    int type;
     int localisation;
     int couleur;
     // vector<CartePropriete*> MesProps;  //en lien avec la clasee cartePropriete
     //vector<Joueur*> ListJ;
 };
 
+class Humain : public Joueur {
+public:
+    Humain(): Joueur() {}
+
+};
+
+class Bot : public Joueur {
+public:
+    Bot(): Joueur() {}
+};
 #endif // JOUEUR_H
