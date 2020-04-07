@@ -82,12 +82,12 @@ void Joueur::setPenalite(int penalite)
 }
 
 
-/*void Joueur::cartePropj()
-{
-    //vector<CartePropriete*> MesProps; 
+//void Joueur::addProp()
+//{
+//    //vector<CartePropriete*> MesProps; 
+//
+//}
 
-}
-*/
 
 
 void Joueur::afficher()

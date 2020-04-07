@@ -1,6 +1,7 @@
 #include "PiocheProprietes.h"
 
 PiocheProprietes::PiocheProprietes() {
+
 	this->PiocheProp.push_back(new Marron("Carouf", 60, 2, "Marron", 1, 4));
 	this->PiocheProp.push_back(new Marron("Inter", 60, 4, "Marron", 1, 4));
 	this->PiocheProp.push_back(new Gare("EPSI", 200, 25, "Noir", 2, 15));
@@ -29,6 +30,7 @@ PiocheProprietes::PiocheProprietes() {
 	this->PiocheProp.push_back(new Gare("Auberge", 200, 25, "Noir", 2, 15));
 	this->PiocheProp.push_back(new BleuFonce("MyDIL", 350, 35, "Bleu fonce", 1, 1));
 	this->PiocheProp.push_back(new BleuFonce("Salle reseau", 400, 50, "Bleu fonce", 1, 1));
+
 }
 
 void PiocheProprietes::afficherPiocheProp() {

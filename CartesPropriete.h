@@ -20,8 +20,8 @@ private:
 
 
 public:
+  
 	CartePropriete(string nom, int prixAchat, int loyer, int type);
-
 	void afficherCarteProp();
 	void setProprio(Joueur* proprio);
 	void setidCouleur(int idcouleur);
@@ -32,6 +32,7 @@ public:
 	int getLoyer();
 	void setNomCouleur(string NomCouleur);
 	string getNomCouleur();
+
 
 
 };

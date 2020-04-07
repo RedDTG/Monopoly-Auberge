@@ -22,9 +22,11 @@ CartePropriete::CartePropriete(string nom, int prixAchat, int loyer, int type) {
 void CartePropriete::afficherCarteProp()
 {
 	color(this->idcouleur,0);
-	cout << "Nom de la carte : " << this->nom << endl;
+	cout << "\nNom de la carte : " << this->nom << endl;
 	cout << "Prix de la propriete: " << this->prixAchat << endl;
-	cout << "Prix du loyer : " << this->loyer << " | Type de la propriete : " << this->type << " |  Couleur : " << this->NomCouleur << endl;
+
+	cout << "Prix du loyer : " << this->loyer << " |  Couleur : " << this->Nomcouleur << endl;
+
 	cout << endl;
 	color(15,0);
 }
@@ -32,6 +34,7 @@ void CartePropriete::afficherCarteProp()
 int CartePropriete::getidCouleur() {
 	return idcouleur;
 }
+
 
 Joueur* CartePropriete::getProprio() { return proprietaire; }
 string CartePropriete::getNom() { return nom; }
@@ -91,4 +94,5 @@ BleuFonce::BleuFonce(string nom, int prixAchat, int loyer, string NomCouleur, in
 	setidCouleur(idcouleur);
 	setNomCouleur(NomCouleur);
 }
+
 
