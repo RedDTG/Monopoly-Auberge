@@ -8,37 +8,38 @@ using namespace std;
 
 
 
-Bot::Bot(int couleur) {
+Bot::Bot(int couleur, vector<Joueur*>* listeJoueurs) {
 	cagnotte = 1500;
 	string listeNom[12] = {"Red","DHB","Le Memelord","Farquaad","Dzenos","Le Dragon","Le roi de la glisse","Nobody","Ysh","Sir Richard Burton","Archange","Airpods"};
 	string nom;
 	int i = rand()%12;
 	nom = listeNom[i];
 	this->nom = nom;
+	this->numero = 10 + (listeJoueurs->size() + 1);
 	this->couleur = couleur+1;
 }
 
-void Bot::choisir_nombre() {
-	int nbBot = 7;
-	while (nbBot > 6) {
-		cout << "Combien de bots voulez vous ajouter : ";
-		cin >> nbBot;
-		if (nbBot > 6) {
-			cout << "\nLe nombre de bots maximal est de 6. Merci d'entrer un nombre inferieur ou egal a 6 !\n" << endl;
-		}
-		else
-		{
-			vector<Bot*>* listeBot = new vector<Bot*>(0);
-			int i = 0;
-			while (i < nbBot) {
-				listeBot->push_back(new Bot(i));
-				listeBot->operator[](i)->afficherBot();
-				i++;
-			}
-		}
-	}
-
-}
+//void Bot::choisir_nombre(vector<Joueur*>* listeJoueurs) {
+//	int nbBot = 7;
+//	while (nbBot > 6) {
+//		cout << "Combien de bots voulez vous ajouter : ";
+//		cin >> nbBot;
+//		if (nbBot > 6) {
+//			cout << "\nLe nombre de bots maximal est de 6. Merci d'entrer un nombre inferieur ou egal a 6 !\n" << endl;
+//		}
+//		else
+//		{
+//			vector<Bot*>* listeBot = new vector<Bot*>(0);
+//			int i = 0;
+//			while (i < nbBot) {
+//				listeBot->push_back(new Bot(i, ));
+//				listeBot->operator[](i)->afficherBot();
+//				i++;
+//			}
+//		}
+//	}
+//
+//}
 
 void Bot::afficherBot(){
 	cout <<"Voici un bot : "<<this->nom<<endl;

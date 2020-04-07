@@ -7,14 +7,13 @@ class plateau
 {
 private:
 	vector<Case*> tableau;
-	vector<string> tabPos;
-
 
 public:
-
-	plateau();
+	
+	plateau(vector<CartePropriete*> piocheProp);
 	void afficherPlateau();
-
+	void deplacement();
+	void ajouterCase(Case* laCase);
 };
 
 

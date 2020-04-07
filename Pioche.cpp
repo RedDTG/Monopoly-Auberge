@@ -42,12 +42,22 @@ void Pioche::ajoutCarte(CarteAction* carte) {
     this->pioche.push_back(carte);
 }
 
-void Pioche::tirerUneCarte() {
+void Pioche::tirerUneCarte(Joueur* joueur) {
+    string titre = this->pioche[0]->getTitre();
+    string description = this->pioche[0]->getTitre();
+    int penalite = this->pioche[0]->getPenalite();
+    int effetArgent = this->pioche[0]->getEffetArgent();
+    int effetDeplacement = this->pioche[0]->getEffetDeplacement();
+
     cout << "Vous avez tire la carte :" << endl;
-    cout << "## " << this->pioche[0]->getTitre() << " ##" << endl;
-    cout << this->pioche[0]->getDescription() << endl;
-    cout << "Effet de deplacement : " << this->pioche[0]->getEffetDeplacement() << "     Effet d'argent : " << this->pioche[0]->getEffetArgent() << "     Penalite : " << this->pioche[0]->getPenalite() << endl;
+    cout << "## " << titre << " ##" << endl;
+    cout << description << endl;
+    cout << "Effet de deplacement : " << effetDeplacement << "     Effet d'argent : " << effetArgent << "     Penalite : " << penalite << endl;
     cout << endl;
+
+    joueur->setCagnotte(effetArgent);
+    joueur->setLocalisation(effetDeplacement);
+    joueur->setPenalite(penalite);
 
     this->defausse.push_back(this->pioche[0]);
     this->pioche.erase(pioche.begin());

@@ -2,14 +2,15 @@
 #include<string>
 #include<vector>
 #include "CartesPropriete.h"
+#include "Joueur.h"
 using namespace std;
 
 
 class Bot
 {
 public:
-	Bot(int couleur);
-	void choisir_nombre();
+	Bot(int couleur, vector<Joueur*>* listeJoueurs);
+	void choisir_nombre(vector<Joueur*>* listeJoueurs);
 	void afficherBot();
 	void acheterCarte(int montant);
 	vector<Bot*>* listeBot;
@@ -27,6 +28,6 @@ private:
 	string nomPion;
 	int couleur;
 	int localisation;
-
+	int numero;
 };
 
