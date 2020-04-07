@@ -14,16 +14,17 @@ void color(int t, int f)
     SetConsoleTextAttribute(H, f * 16 + t);
 }
 
-Joueur::Joueur()
+Joueur::Joueur(vector<Joueur*>* listeJoueurs)
 {
     cagnotte = 1500;
+    cout << "Entrer votre nom : ";
+    string nom;
+    cin >> nom;
     this->nom = nom;
     this->couleur = couleur + 1;
-}
-
-Joueur::~Joueur()
-{
-    //dtor
+    int numero = (listeJoueurs->size() + 1);
+    cout << "votre nom est : " << this->nom << " et vous etes le joueur numero " << this->numero << ".\n" << endl;
+    system("cls");
 }
 
 string Joueur::getNom()
@@ -36,52 +37,44 @@ int Joueur::getLocalisation()
     return localisation;
 }
 
-void Joueur::choisir_nom()
+void Joueur::setCagnotte(int effetArgent)
 {
-    cout << "Combien de joueur etes vous : ";
-    int nbrJoueur(0);
-    cin >> nbrJoueur;
-    if (nbrJoueur < 8) {
-        cout << "Vous etes " << nbrJoueur << " joueurs !\n" << endl;
-        for (int i = 0; i < nbrJoueur; i++) {
-            cout << "Entrer votre nom : ";
-            string nom;
-            cin >> nom;
-            cout << "votre nom est : \n" << nom << endl;
-            system("cls");
+    this->cagnotte = cagnotte + effetArgent;
+}
 
+void Joueur::addLocalisation(int effetDeplacement)
+{
+    if (effetDeplacement > 0) {
+        for (int i = 0; i < effetDeplacement; i++) {
+            this->localisation = localisation + 1;
+            if (this->localisation == 40) {
+                this->localisation = 0;
+                this->cagnotte = cagnotte + 200;
+                cout << "Vous passez par la case départ vous gagnez 200€ !" << endl;
+            }
+        }  
+    }
+    if (effetDeplacement < 0) {
+        for (int i = effetDeplacement; i > 0; i++) {
+            this->localisation = localisation - 1;
+            if (this->localisation == 0) {
+                this->localisation = 39;
+            }
         }
     }
-    else if (nbrJoueur > 8) {
-        cout << "Vous etes trop\n Relancez le jeu et choisissez un nombre de joueur inférieur ou égale à 8" << endl;
-
-    }
-
 }
 
-
-
-
-
-void Joueur::setCagnotte()
+void Joueur::setLocalisation(int localisation)
 {
-
+    this->localisation = localisation;
 }
 
-void Joueur::setLocalisation()
-{
-
-}
 
 int Joueur::getCagnotte()
 {
     return cagnotte;
 }
 
-int Joueur::getLocalisation()
-{
-    return localisation;
-}
 
 /*void Joueur::cartePropj()
 {

@@ -2,21 +2,19 @@
 #define JOUEUR_H
 #include <string>
 #include <vector>
-//#include "CartesPropriete.h"
+#include "CartesPropriete.h"
 using namespace std;
 
 
 class Joueur
 {
 public:
-    Joueur();
-    virtual ~Joueur();
+    Joueur(vector<Joueur*>* listeJoueurs);
     
-    
-    void choisir_nom();
-    
-    void setCagnotte();
-    void setLocalisation();
+    void setCagnotte(int effetArgent);
+    void setLocalisation(int localisation);
+    void setPenalite(int penalite);
+    void addLocalisation(int effetDeplacement);
     
 
     string getNom();
@@ -32,7 +30,7 @@ protected:
 private:
     string nom;
     int cagnotte;
-    
+    int numero;
     
     int localisation;
     int couleur;

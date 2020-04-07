@@ -7,6 +7,9 @@
 #include"CartesPropriete.h"
 #include "Bot.h"
 #include <cstdlib>
+#include "plateau.h"
+#include "Joueur.h"
+#include "PiocheProprietes.h"
 using namespace std;
 
 void color(int t, int f)
@@ -17,31 +20,78 @@ void color(int t, int f)
 
 int main() {
     srand(time(NULL));
-    Pioche* piocheAmnesie = new PiocheAmnesie;
-    Pioche* piochePotCommun = new PiochePotCommun;
+    Pioche* piocheAmnesie = new PiocheAmnesie();
+    Pioche* piochePotCommun = new PiochePotCommun();
+    PiocheProprietes* piocheProp = new PiocheProprietes();
+    plateau* plateauJeu = new plateau(piocheProp->getPiocheProp());
+    vector<Joueur*>* listeJoueurs;
+
     cout << " Bienvenue dans le Monopoly de l'Auberge ! \n" << endl;
     int choixMenu = 0;
-    while (!(choixMenu==3))
+
+    while (!(choixMenu == 3))
     {
         cout << " 1 - Ajouter des joueurs\n 2 - Ajouter des bots\n 3 - Lancer la partie\n Entrez ci dessous le numero correspondant au menu voulu : " << endl;
-    
+
         cin >> choixMenu;
         if (choixMenu == 1) {
             cout << "Ici on reverra vers l'ecran d'ajout des joueurs\n";
-            //Joueur* nJoueur = new Joueur();
-            //nJoueur->choisir_nom();
-            system("PAUSE");
-            system("cls");
+            if (listeJoueurs->size() == 6) {
+                cout << "Vous ne pouvez plus rajouter de joueur !" << endl;
+            }
+            else {
+                Joueur* nJoueur = new Joueur(listeJoueurs);
+                listeJoueurs->push_back(nJoueur);
+                system("PAUSE");
+                system("cls");
+            }
         }
         if (choixMenu == 2) {
-            Bot* nouveauBot = new Bot(0);
-            nouveauBot->choisir_nombre();
+            int nbBot = 0;
+            while (nbBot < (6-listeJoueurs->size())) {
+                cout << "Combien de bots voulez vous ajouter : ";
+                cin >> nbBot;
+                if (nbBot < (6 - listeJoueurs->size())) {
+                    cout << "\nLe nombre de joueurs maximal est de 6 joueurs. Merci d'entrer moins de bots !\n" << endl;
+                }
+                //else
+                //{
+                //    vector<Bot*>* listeBot = new vector<Bot*>(0);
+                //    int i = 0;
+                //      while (i < nbBot) {
+                //        listeBot->push_back(new Bot(i, listeBot));
+                //        listeBot->operator[](i)->afficherBot();
+                //        i++;
+                //    }
+                //}
+            }
+            Bot* nouveauBot = new Bot(0, listeJoueurs);
+            //listeJoueurs->push_back(nouveauBot);
+
             system("PAUSE");
             system("cls");
         }
         if (choixMenu == 3) {
-            cout << "Ici on mettra tout le code lie au deroulement de la partie \n";
-            //CartePropriete::CreaCarteProp;
+
+            int choixJoueur;
+            int gagnant;
+            plateauJeu->afficherPlateau();
+
+            while (gagnant != 0) {
+
+                for (int i = 0; i < listeJoueurs->size(); i++) {
+
+                    if (listeJoueurs->operator[](i))
+                    cout << " 1 - Afficher le plateau\n 2 - Lancer les des\n" << endl;
+                    cin >> choixJoueur;
+
+                    if (choixJoueur == 1) {
+                        plateauJeu->afficherPlateau();
+                    }
+                }
+            }
+
+            
             system("PAUSE");
             system("cls");
         }
@@ -52,9 +102,10 @@ int main() {
             system("cls");
         }
     }
+
     
     delete piocheAmnesie;
     delete piochePotCommun;
-
+    delete plateauJeu;
     return 0;
 }

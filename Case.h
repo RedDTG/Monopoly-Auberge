@@ -1,44 +1,71 @@
 #pragma once
+#include "CartesPropriete.h"
+#include "Joueur.h"
+
 class Case
 {
 private:
 	int positionPlateau;
 public:
-	Case();
-	//void actionCase(Joueur*);
+	Case(int positionPlateau);
+	void setPosPlateau(int positionPlateau) { this->positionPlateau = positionPlateau; }
 };
 
-class CasePropriete :Case {
+class CasePropriete : public Case{
 private:
-
-
+	CartePropriete* carteProp;
 public:
-	void actionCase(Joueur*);
-
+	CasePropriete(int positionPlateau, CartePropriete* carteProp);
+	//virtual void actionCase();
 };
 
-class CasePotCommun :Case {
+class CasePotCommun : public Case {
+public:
+	void actionCase(piochePotCommun);
+	CasePotCommun(int positionTableau);
+};
+
+class CasePackEpsi : public Case {
 private:
+	//int effetArgent;
 
 public:
-
+	CasePackEpsi(int positionTableau);
+	//virtual void actionCase();
 };
 
-class CasePackEpsi :Case {
-private:
-	int effetArgent;
-
+class CaseAmnesie : public Case {
 public:
-	CasePackEpsi();
-
+	CaseAmnesie(int positionTableau);
+	void actionCase(piocheAmnesie);
 };
 
-class CaseAmnesie :Case {
+class CaseStart : public Case {
 public:
-	actionCase(Joueur*);
+	CaseStart(int positionTableau);
+	//virtual void actionCase();
 };
 
-class CaseAmnesie :Case {
+class CaseAdmin : public Case {
 public:
-	actionCase(Joueur*);
+	CaseAdmin(int positionTableau);
+	//virtual void actionCase();
+};
+
+class CaseParc : public Case {
+public:
+	CaseParc(int positionTableau);
+	//virtual void actionCase();
+};
+
+class CaseRetard : public Case {
+public:
+	CaseRetard(int positionTableau);
+	//virtual void actionCase();
+};
+
+class CaseBDE : public Case {
+public:
+	CaseBDE(int positionTableau);
+	//virtual void actionCase();
 };

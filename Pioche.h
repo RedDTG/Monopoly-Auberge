@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "CarteAction.h"
+#include "Joueur.h"
 using namespace std;
 
 class Pioche
@@ -15,7 +16,7 @@ public:
 	void ajoutCarte(CarteAction*);
 	void melangerPioche();
 	void afficherPioche();
-	void tirerUneCarte();
+	void tirerUneCarte(Joueur* joueur);
 	void afficherDefausse();
 	void reinitPioche();
 	vector<CarteAction*> getPioche();
