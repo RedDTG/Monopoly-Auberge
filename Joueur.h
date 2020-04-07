@@ -20,6 +20,7 @@ public:
    
     int getCagnotte();
     int getLocalisation();
+    int getPenalite();
     
     //void cartePropj();
     void afficher();
@@ -33,17 +34,17 @@ private:
     int type;
     int localisation;
     int couleur;
+    int penalite;
     // vector<CartePropriete*> MesProps;  //en lien avec la clasee cartePropriete
-    //vector<Joueur*> ListJ;
 };
 
 class Humain : public Joueur {
 public:
-    Humain(): Joueur() {}
+    Humain();
 
 };
 
 class Bot : public Joueur {
 public:
-    Bot(): Joueur() {}
+    Bot();
 };

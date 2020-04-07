@@ -67,7 +67,6 @@ void CasePropriete::actionCase(Joueur* joueur, CartePropriete* carteProp) {
 	}
 }
 
-
 CasePropriete::CasePropriete(int positionPlateau, CartePropriete* carteProp) : Case(positionPlateau) { }
 CaseStart::CaseStart(int positionPlateau) : Case(positionPlateau) { }
 CaseAdmin::CaseAdmin(int positionPlateau) : Case(positionPlateau) { }
