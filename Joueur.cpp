@@ -24,6 +24,7 @@ Joueur::Joueur(vector<Joueur*>* listeJoueurs)
     this->couleur = couleur + 1;
     int numero = (listeJoueurs->size() + 1);
     cout << "votre nom est : " << this->nom << " et vous etes le joueur numero " << this->numero << ".\n" << endl;
+    system("PAUSE");
     system("cls");
 }
 
@@ -55,7 +56,7 @@ void Joueur::addLocalisation(int effetDeplacement)
         }  
     }
     if (effetDeplacement < 0) {
-        for (int i = effetDeplacement; i > 0; i++) {
+        for (int i = 0; i > effetDeplacement; i--) {
             this->localisation = localisation - 1;
             if (this->localisation == 0) {
                 this->localisation = 39;
@@ -73,6 +74,11 @@ void Joueur::setLocalisation(int localisation)
 int Joueur::getCagnotte()
 {
     return cagnotte;
+}
+
+void Joueur::setPenalite(int penalite)
+{
+
 }
 
 
