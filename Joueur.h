@@ -1,5 +1,4 @@
-#ifndef JOUEUR_H
-#define JOUEUR_H
+#pragma once
 #include <string>
 #include <vector>
 #include "CartesPropriete.h"
@@ -48,4 +47,3 @@ class Bot : public Joueur {
 public:
     Bot(): Joueur() {}
 };
-#endif // JOUEUR_H

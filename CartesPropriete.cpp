@@ -25,10 +25,16 @@ CartePropriete::CartePropriete(string nom, int prixAchat, int loyer, string Nomc
 void CartePropriete::afficherCarteProp()
 {
 	color(this->idcouleur,0);
-	cout << "Nom de la carte : " << this->nom << endl;
+	cout << "\nNom de la carte : " << this->nom << endl;
 	cout << "Prix de la propriete: " << this->prixAchat << endl;
-	cout << "Prix du loyer : " << this->loyer << " | Type de la propriete : " << this->type << " |  Couleur : " << this->Nomcouleur << endl;
+	cout << "Prix du loyer : " << this->loyer << " |  Couleur : " << this->Nomcouleur << endl;
 	cout << endl;
 	color(15,0);
 }
 
+Joueur* CartePropriete::getProprio() { return proprietaire; }
+string CartePropriete::getNom() { return nom; }
+int CartePropriete::getLoyer() { return loyer; }
+int CartePropriete::getPrix() { return prixAchat; }
+
+void CartePropriete::setProprio(Joueur* proprio) { this->proprietaire = proprio; }

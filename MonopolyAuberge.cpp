@@ -10,6 +10,7 @@
 #include "plateau.h"
 #include "Joueur.h"
 #include "PiocheProprietes.h"
+#include "des.h"
 using namespace std;
 
 void color(int t, int f)
@@ -25,6 +26,7 @@ int main() {
     PiocheProprietes* piocheProp = new PiocheProprietes();
     plateau* plateauJeu = new plateau(piocheProp->getPiocheProp());
     vector<Joueur*>* listeJoueurs;
+    des* unDe = new des();
 
     cout << " Bienvenue dans le Monopoly de l'Auberge ! \n" << endl;
     int choixMenu = 0;
@@ -75,18 +77,25 @@ int main() {
 
             int choixJoueur;
             int gagnant;
+            int deplacement;
             plateauJeu->afficherPlateau();
 
             while (gagnant != 0) {
 
                 for (int i = 0; i < listeJoueurs->size(); i++) {
 
-                    if (listeJoueurs->operator[](i))
-                    cout << " 1 - Afficher le plateau\n 2 - Lancer les des\n" << endl;
-                    cin >> choixJoueur;
+                    if (1==1) { //detection si joueur
+                        cout << " 1 - Afficher le plateau\n 2 - Lancer les des\n" << endl;
+                        cin >> choixJoueur;
 
-                    if (choixJoueur == 1) {
-                        plateauJeu->afficherPlateau();
+                        if (choixJoueur == 1) {
+                            plateauJeu->afficherPlateau();
+                        }
+                        else {
+                            cout << "Vous lancez les dés !" << endl;
+                            deplacement = (unDe->jetDes() + unDe->jetDes());
+                            listeJoueurs->operator[](i)->addLocalisation(deplacement);
+                        }
                     }
                 }
             }
