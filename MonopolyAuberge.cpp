@@ -5,12 +5,10 @@
 #include <vector>
 #include "Pioche.h"
 #include"CartesPropriete.h"
-#include "Bot.h"
 #include <cstdlib>
 #include "plateau.h"
 #include "Joueur.h"
 #include "PiocheProprietes.h"
-#include "des.h"
 using namespace std;
 
 void color(int t, int f)
@@ -26,7 +24,6 @@ int main() {
     PiocheProprietes* piocheProp = new PiocheProprietes();
     plateau* plateauJeu = new plateau(piocheProp->getPiocheProp());
     vector<Joueur*>* listeJoueurs;
-    des* unDe = new des();
 
     cout << " Bienvenue dans le Monopoly de l'Auberge ! \n" << endl;
     int choixMenu = 0;
@@ -56,50 +53,37 @@ int main() {
                 if (nbBot > (6 - listeJoueurs->size())) {
                     cout << "\nLe nombre de joueurs maximal est de 6 joueurs. Merci d'entrer moins de bots !\n" << endl;
                 }
-                //else
-                //{
-                //    vector<Bot*>* listeBot = new vector<Bot*>(0);
-                //    int i = 0;
-                //      while (i < nbBot) {
-                //        listeBot->push_back(new Bot(i, listeBot));
-                //        listeBot->operator[](i)->afficherBot();
-                //        i++;
-                //    }
-                //}
+                else
+                {
+                    int i = 0;
+                    for (int i = 0; i < nbBot; i++) {
+                        listeJoueurs->push_back(new Bot(listeJoueurs));
+                    }
+                }
             }
-            Bot* nouveauBot = new Bot(0, listeJoueurs);
-            //listeJoueurs->push_back(nouveauBot);
+            Bot* nouveauBot = new Bot(listeJoueurs);
+            listeJoueurs->push_back(nouveauBot);
 
             system("PAUSE");
             system("cls");
         }
         if (choixMenu == 3) {
 
-            int choixJoueur;
             int gagnant;
-            int deplacement;
             plateauJeu->afficherPlateau();
 
             while (gagnant != 0) {
 
                 for (int i = 0; i < listeJoueurs->size(); i++) {
 
-                    if (1==1) { //detection si joueur
-                        cout << " 1 - Afficher le plateau\n 2 - Lancer les des\n" << endl;
-                        cin >> choixJoueur;
-
-                        if (choixJoueur == 1) {
-                            plateauJeu->afficherPlateau();
-                        }
-                        else {
-                            cout << "Vous lancez les dés !" << endl;
-                            deplacement = (unDe->jetDes() + unDe->jetDes());
-                            listeJoueurs->operator[](i)->addLocalisation(deplacement);
-                        }
+                    if (listeJoueurs->operator[](i)->getType() == 1) { 
+                        //listeJoueurs->operator[](i)->deroulementJeu();
+                    }
+                    else {
+                        //listeJoueurs->operator[](i)->deroulementJeu();
                     }
                 }
             }
-
             
             system("PAUSE");
             system("cls");

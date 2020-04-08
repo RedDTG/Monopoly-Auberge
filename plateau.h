@@ -14,6 +14,7 @@ public:
 	void afficherPlateau();
 	void deplacement();
 	void ajouterCase(Case* laCase);
+	void annoncerCase(int localisation);
 };
 
 
