@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include "CartesPropriete.h"
+#include "des.h"
+#include <iostream>
 using namespace std;
 
 
@@ -14,18 +16,24 @@ public:
     void setLocalisation(int localisation);
     void setPenalite(int penalite);
     void addLocalisation(int effetDeplacement);
-    
+    void setNom(string nom);
+    void setNumero(int numero);
+    void setCouleur(int couleur);
+    void setType(int type);
 
     string getNom();
-   
     int getCagnotte();
     int getLocalisation();
     int getPenalite();
-    
-    //void cartePropj();
-    void afficher();
+    int getCouleur();
+    int getNumero();
+    int getType();
 
-protected:
+    int detectionGroupe(string nomCouleur, int groupe);
+    void addCarteProp(CartePropriete* carte);
+
+
+    void afficher();
 
 private:
     string nom;
@@ -35,16 +43,17 @@ private:
     int localisation;
     int couleur;
     int penalite;
-    // vector<CartePropriete*> MesProps;  //en lien avec la clasee cartePropriete
+    vector<CartePropriete*> mesProps;
 };
 
 class Humain : public Joueur {
 public:
-    Humain();
-
+    Humain(vector<Joueur*>* listeJoueurs);
+    virtual void deroulementTour(plateau* plateauJeu);
 };
 
 class Bot : public Joueur {
 public:
-    Bot();
+    Bot(vector<Joueur*>* listeJoueurs);
+    virtual void deroulementTour();
 };

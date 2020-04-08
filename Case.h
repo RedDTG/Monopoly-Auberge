@@ -10,6 +10,7 @@ private:
 public:
 	Case(int positionPlateau);
 	void setPosPlateau(int positionPlateau) { this->positionPlateau = positionPlateau; }
+
 };
 
 class CasePropriete : public Case{

@@ -107,7 +107,6 @@ void plateau::afficherPlateau() {
 	cout << "\n\n\n" << endl;
 }
 
-//void retourPlateau(Joueur*) {
-//	Joueur->location = 0;
-//	Joueur->cagnotte += 200;
-//}
+void plateau::annoncerCase(int localisation) {
+	//this->tableau.operator[](localisation)->actionCase(Joueur* joueur)
+}

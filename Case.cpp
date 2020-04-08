@@ -54,17 +54,29 @@ void CasePropriete::actionCase(Joueur* joueur, CartePropriete* carteProp) {
 			if (joueur->getCagnotte() > carteProp->getPrix()) {
 				joueur->setCagnotte((0 - carteProp->getPrix()));
 				carteProp->setProprio(joueur);
-				//ajout de la carte dans la main du joueur
+				joueur->addCarteProp(carteProp);
 				cout << "Bravo ! Vous faites l'acquisition de : " << carteProp->getNom() << " !" << endl;
 			}
-			else {
-				cout << "Vous n'avez pas assez d'argent pour acheter cette propriete !" << endl;
-			}
+			else { cout << "Vous n'avez pas assez d'argent pour acheter cette propriete !" << endl;	}
 		}
-		else {
-			cout << "Vous n'achetez pas cette propriete !" << endl;
-		}
+		else { cout << "Vous n'achetez pas cette propriete !" << endl; }
 	}
+	else {
+		int loyer;
+		loyer = carteProp->getLoyer();
+		cout << "Cette propriete appartient a " << carteProp->getProprio() << endl;
+		cout << "Vous devez donc payer le loyer correspondant !" << endl;
+		if (joueur->detectionGroupe(carteProp->getNomCouleur(), carteProp->getGroupe())) {
+			loyer = loyer * 2;
+			cout << "Il possede le groupe complet ! Vous payez double !" << endl;
+		}
+		joueur->setCagnotte((0 - loyer));
+		cout << "Vous perdez donc " << loyer << "€ !" << endl;
+	}
+}
+
+void CaseAdmin::actionCase() {
+	cout << "Après avoir reçu un mail, vous passez à l'administration. Heureusement c'etait une erreur !" << endl;
 }
 
 CasePropriete::CasePropriete(int positionPlateau, CartePropriete* carteProp) : Case(positionPlateau) { }
