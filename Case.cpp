@@ -46,18 +46,18 @@ void CasePropriete::actionCase(Joueur* joueur, CartePropriete* carteProp) {
 	cout << "Vous arrivez sur une case propriété !" << endl;
 	carteProp->afficherCarteProp();
 
-	if (!(carteProp->getProprio())) {
+	if (carteProp->getProprio() == "0") {
 		cout << "Cette prorpiété n'a pas encore été achetée ! Voulez-vous l'acheter ? Oui(1) ou Non(2)" << endl;
 		int reponse;
 		cin >> reponse;
 		if (reponse == 1) {
 			if (joueur->getCagnotte() > carteProp->getPrix()) {
 				joueur->setCagnotte((0 - carteProp->getPrix()));
-				carteProp->setProprio(joueur);
+				carteProp->setProprio(joueur->getNom());
 				joueur->addCarteProp(carteProp);
 				cout << "Bravo ! Vous faites l'acquisition de : " << carteProp->getNom() << " !" << endl;
 			}
-			else { cout << "Vous n'avez pas assez d'argent pour acheter cette propriete !" << endl;	}
+			else { cout << "Vous n'avez pas assez d'argent pour acheter cette propriete !" << endl; }
 		}
 		else { cout << "Vous n'achetez pas cette propriete !" << endl; }
 	}

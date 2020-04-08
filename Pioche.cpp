@@ -44,7 +44,7 @@ void Pioche::ajoutCarte(CarteAction* carte) {
 
 void Pioche::tirerUneCarte(Joueur* joueur) {
     string titre = this->pioche[0]->getTitre();
-    string description = this->pioche[0]->getTitre();
+    string description = this->pioche[0]->getDescription();
     int penalite = this->pioche[0]->getPenalite();
     int effetArgent = this->pioche[0]->getEffetArgent();
     int effetDeplacement = this->pioche[0]->getEffetDeplacement();

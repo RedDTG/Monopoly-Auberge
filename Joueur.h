@@ -4,6 +4,7 @@
 #include "CartesPropriete.h"
 #include "des.h"
 #include <iostream>
+#include "plateau.h"
 using namespace std;
 
 
@@ -19,7 +20,6 @@ public:
     void setNom(string nom);
     void setNumero(int numero);
     void setCouleur(int couleur);
-    void setType(int type);
 
     string getNom();
     int getCagnotte();
@@ -27,10 +27,10 @@ public:
     int getPenalite();
     int getCouleur();
     int getNumero();
-    int getType();
 
     int detectionGroupe(string nomCouleur, int groupe);
     void addCarteProp(CartePropriete* carte);
+    virtual void deroulementTour(plateau* plateauJeu) {}
 
 
     void afficher();
@@ -39,7 +39,6 @@ private:
     string nom;
     int cagnotte;
     int numero;
-    int type;
     int localisation;
     int couleur;
     int penalite;
@@ -55,5 +54,5 @@ public:
 class Bot : public Joueur {
 public:
     Bot(vector<Joueur*>* listeJoueurs);
-    virtual void deroulementTour();
+    virtual void deroulementTour(plateau* plateauJeu);
 };

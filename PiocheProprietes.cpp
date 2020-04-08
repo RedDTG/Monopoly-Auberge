@@ -23,7 +23,7 @@ PiocheProprietes::PiocheProprietes() {
 	this->PiocheProp.push_back(new Jaune("Katorza Cinema", 260, 22));
 	this->PiocheProp.push_back(new Jaune("Pathe Gaumont", 260, 22));
 	this->PiocheProp.push_back(new Compagnie("Beecome", 150, 10));
-	this->PiocheProp.push_back(new Jaune("Pathe Atlantis", 280));
+	this->PiocheProp.push_back(new Jaune("Pathe Atlantis", 280, 24));
 	this->PiocheProp.push_back(new Vert("Game Over", 300, 26));
 	this->PiocheProp.push_back(new Vert("Tabarnak", 300, 26));
 	this->PiocheProp.push_back(new Vert("Meltdown", 320, 28));
