@@ -2,14 +2,21 @@
 #include <string>
 #include <vector>
 #include "CartesPropriete.h"
-#include "des.h"
 #include <iostream>
-#include "plateau.h"
 using namespace std;
 
 
 class Joueur
 {
+private:
+    string nom;
+    int cagnotte;
+    int numero;
+    int localisation;
+    int couleur;
+    int penalite;
+    vector<CartePropriete*> mesProps;
+
 public:
     Joueur(vector<Joueur*>* listeJoueurs);
     
@@ -30,29 +37,17 @@ public:
 
     int detectionGroupe(string nomCouleur, int groupe);
     void addCarteProp(CartePropriete* carte);
-    virtual void deroulementTour(plateau* plateauJeu) {}
-
 
     void afficher();
-
-private:
-    string nom;
-    int cagnotte;
-    int numero;
-    int localisation;
-    int couleur;
-    int penalite;
-    vector<CartePropriete*> mesProps;
 };
 
 class Humain : public Joueur {
 public:
     Humain(vector<Joueur*>* listeJoueurs);
-    virtual void deroulementTour(plateau* plateauJeu);
 };
 
 class Bot : public Joueur {
 public:
     Bot(vector<Joueur*>* listeJoueurs);
-    virtual void deroulementTour(plateau* plateauJeu);
+    void acheterCarte(int montant);
 };

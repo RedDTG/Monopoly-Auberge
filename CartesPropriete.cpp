@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-void color(int t, int f)
+void color2(int t, int f)
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(H, f * 16 + t);
@@ -21,14 +21,14 @@ CartePropriete::CartePropriete(string nom, int prixAchat, int loyer) {
 
 void CartePropriete::afficherCarteProp()
 {
-	color(this->idcouleur,0);
+	color2(this->idcouleur,0);
 	cout << "\nNom de la carte : " << this->nom << endl;
 	cout << "Prix de la propriete: " << this->prixAchat << endl;
 
 	cout << "Prix du loyer : " << this->loyer << " |  Couleur : " << this->NomCouleur << endl;
 
 	cout << endl;
-	color(15,0);
+	color2(15,0);
 }
 
 int CartePropriete::getidCouleur() {

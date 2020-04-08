@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include "Case.h"
+#include "Joueur.h"
+#include  "des.h"
 using namespace std;
 
 class plateau
@@ -12,9 +14,8 @@ public:
 	
 	plateau(vector<CartePropriete*> piocheProp);
 	void afficherPlateau();
-	void deplacement();
+	void deplacement(Joueur* joueur, int deplacement);
 	void ajouterCase(Case* laCase);
-	void annoncerCase(int localisation);
+	void getCase(int localisation, Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun, CartePropriete* carteProp);
 };
-
 
