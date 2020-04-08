@@ -16,6 +16,7 @@ CartePropriete::CartePropriete(string nom, int prixAchat, int loyer) {
 	this->nom = nom;
 	this->loyer = loyer;
 	this->prixAchat = prixAchat;
+	this->proprietaire = "0";
 }
 
 void CartePropriete::afficherCarteProp()
@@ -37,11 +38,11 @@ int CartePropriete::getidCouleur() {
 void CartePropriete::setGroupe(int groupe) { this->groupe = groupe; }
 int CartePropriete::getGroupe() { return this->groupe; }
 
-Joueur* CartePropriete::getProprio() { return proprietaire; }
+string CartePropriete::getProprio() { return proprietaire; }
 string CartePropriete::getNom() { return nom; }
 int CartePropriete::getLoyer() { return loyer; }
 int CartePropriete::getPrix() { return prixAchat; }
-void CartePropriete::setProprio(Joueur* proprio) { this->proprietaire = proprio; }
+void CartePropriete::setProprio(string proprio) { this->proprietaire = proprio; }
 
 void CartePropriete::setidCouleur(int idcouleur) {
 	this->idcouleur = idcouleur;

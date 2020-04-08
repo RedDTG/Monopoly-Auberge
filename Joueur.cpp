@@ -28,7 +28,6 @@ int Joueur::getPenalite() { return this->penalite; }
 int Joueur::getCagnotte() { return cagnotte; }
 int Joueur::getCouleur() { return this->couleur; }
 int Joueur::getNumero() { return this->numero; }
-int Joueur::getType() { return this->type; }
 
 void Joueur::setPenalite(int penalite){ this->setPenalite(penalite); }
 void Joueur::setNom(string nom) { this->nom = nom; }
@@ -57,10 +56,8 @@ void Joueur::addLocalisation(int effetDeplacement)
         }
     }
     
-    cout 
 }
 void Joueur::setLocalisation(int localisation) { this->localisation = localisation; }
-void Joueur::setType(int type) { this->type = type; }
 
 
 void Joueur::afficher()
@@ -78,7 +75,6 @@ Bot::Bot(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
     this->setNom(nom);
     this->setNumero((listeJoueurs->size() + 1));
     this->setCouleur(listeJoueurs->size() + 1);
-    this->setType(0);
     cout << "Le bot " << this->getNom() << " a été créé. Il a le numero " << this->getNumero() << endl;
 }
 
@@ -89,8 +85,7 @@ Humain::Humain(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
     this->setNom(nom);
     this->setNumero((listeJoueurs->size() + 1));
     this->setCouleur(listeJoueurs->size() + 1);
-    this->setType(1);
-    cout << "votre nom est : " << this->getNom << " et vous etes le joueur numero " << this->getNumero << ".\n" << endl;
+    cout << "votre nom est : " << this->getNom() << " et vous etes le joueur numero " << this->getNumero() << ".\n" << endl;
 }
 
 int Joueur::detectionGroupe(string nomCouleur, int groupe) {
@@ -121,4 +116,4 @@ void Humain::deroulementTour(plateau* plateauJeu) {
     }
 }
 
-void Bot::deroulementTour() { }
+void Bot::deroulementTour(plateau* plateauJeu) { }

@@ -75,13 +75,7 @@ int main() {
             while (gagnant != 0) {
 
                 for (int i = 0; i < listeJoueurs->size(); i++) {
-
-                    if (listeJoueurs->operator[](i)->getType() == 1) { 
-                        //listeJoueurs->operator[](i)->deroulementJeu();
-                    }
-                    else {
-                        //listeJoueurs->operator[](i)->deroulementJeu();
-                    }
+                    listeJoueurs->operator[](i)->deroulementTour(plateauJeu);
                 }
             }
             

@@ -1,6 +1,5 @@
 #pragma once
 #include "CartesPropriete.h"
-#include "Joueur.h"
 #include "Pioche.h"
 
 class Case
