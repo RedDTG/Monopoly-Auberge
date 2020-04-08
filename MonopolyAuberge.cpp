@@ -25,6 +25,7 @@ int main() {
     plateau* plateauJeu = new plateau(piocheProp->getPiocheProp());
     vector<Joueur*>* listeJoueurs;
 
+
     cout << " Bienvenue dans le Monopoly de l'Auberge ! \n" << endl;
     int choixMenu = 0;
 
@@ -39,8 +40,7 @@ int main() {
                 cout << "Vous ne pouvez plus rajouter de joueur !" << endl;
             }
             else {
-                Joueur* nJoueur = new Joueur(listeJoueurs);
-                listeJoueurs->push_back(nJoueur);
+                listeJoueurs->push_back(new Humain(listeJoueurs));
                 system("PAUSE");
                 system("cls");
             }
@@ -61,8 +61,6 @@ int main() {
                     }
                 }
             }
-            Bot* nouveauBot = new Bot(listeJoueurs);
-            listeJoueurs->push_back(nouveauBot);
 
             system("PAUSE");
             system("cls");
@@ -75,7 +73,16 @@ int main() {
             while (gagnant != 0) {
 
                 for (int i = 0; i < listeJoueurs->size(); i++) {
-                    listeJoueurs->operator[](i)->deroulementTour(plateauJeu);
+                    int choixJoueur;
+                    cout << " 1 - Afficher le plateau\n 2 - Lancer le prochain tour\n" << endl;
+                    cin >> choixJoueur;
+
+                    if (choixJoueur == 1) {
+                        plateauJeu->afficherPlateau();
+                    }
+                    else {
+
+                    }
                 }
             }
             

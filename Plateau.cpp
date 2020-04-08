@@ -3,7 +3,6 @@
 #include <iostream>
 #include "plateau.h"
 #include "Case.h"
-#include "des.h"
 #include "PiocheProprietes.h"
 using namespace std;
 
@@ -57,12 +56,28 @@ void plateau::ajouterCase(Case* laCase) {
 	this->tableau.push_back(laCase);
 }
 
-void plateau::deplacement() {
-	des* unDe = new des;
-	int roll = unDe->jetDes();
-
+void plateau::deplacement(Joueur* joueur, int deplacement) {
+	if (deplacement > 0) {
+		cout << "Vous avancez de " << deplacement << " cases." << endl;
+		for (int i = 0; i < deplacement; i++) {
+			joueur->setLocalisation((joueur->getLocalisation() + 1));
+			if (joueur->getLocalisation() == (this->tableau.size()+1)) {
+				joueur->setLocalisation(0);
+				joueur->setCagnotte(200);
+				cout << "Vous passez par la case départ vous gagnez 200€ !" << endl;
+			}
+		}
+	}
+	else if (deplacement < 0) {
+		cout << "Vous reculez de " << deplacement << " cases." << endl;
+		for (int i = 0; i > deplacement; i--) {
+			joueur->setLocalisation((joueur->getLocalisation() - 1));
+			if (joueur->getLocalisation() == 0) {
+				joueur->setLocalisation(this->tableau.size());
+			}
+		}
+	}
 }
-
 
 
 void plateau::afficherPlateau() {
@@ -107,6 +122,6 @@ void plateau::afficherPlateau() {
 	cout << "\n\n\n" << endl;
 }
 
-void plateau::annoncerCase(int localisation) {
-	//this->tableau.operator[](localisation)->actionCase(Joueur* joueur)
+void plateau::getCase(int localisation, Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun, CartePropriete* carteProp) {
+	this->tableau.operator[](localisation)->actionCase(joueur, piochePotCommun, piocheAmnesie, carteProp);
 }

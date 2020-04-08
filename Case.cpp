@@ -7,47 +7,47 @@ Case::Case(int positionPlateau) {
 	this->positionPlateau = positionPlateau;
 }
 
-void CaseAmnesie::actionCase(Joueur* joueur, Pioche* piocheAmnesie) {
+void CaseAmnesie::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Vous piochez une carte Amnesie !" << endl;
 	piocheAmnesie->tirerUneCarte(joueur);
 }
 
-void CasePotCommun::actionCase(Joueur* joueur, Pioche* piochePotCommun) {
+void CasePotCommun::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Vous piochez une carte Pot Commun !" << endl;
 	piochePotCommun->tirerUneCarte(joueur);
 }
 
-void CaseStart::actionCase(Joueur* joueur) {
+void CaseStart::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Vous êtes sur la case départ ! Vous vous 'reposez' en prenant un mètre de shooter ! Vous perdez 30€ !" << endl;
 	joueur->setCagnotte(-30);
 }
 
-void CaseBDE::actionCase(Joueur* joueur) {
+void CaseBDE::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Le BDE vous demande un chèque de 40€ pour organiser un week-end d'intégration en Mai ! Votre générosité vous perdra !" << endl;
 	joueur->setCagnotte(-40);
 }
 
-void CaseParc::actionCase(Joueur* joueur) {
+void CaseParc::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Vous vous baladez tranquillement mais hélas vous passez sous le pont et vous vous faites racketer votre telephone. Il n'etait pourtant meme pas 21h... Vous perdez 100€." << endl;
 	joueur->setCagnotte(-100);
 }
 
-void CaseRetard::actionCase(Joueur* joueur) {
+void CaseRetard::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Vous arrivez en retard au cours de M. Reinold ! Passez par l'administration et restez-y 3 tours !" << endl;
 	joueur->setPenalite(3);
 }
 
-void CasePackEpsi::actionCase(Joueur* joueur) {
+void CasePackEpsi::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Oh non vous avez perdu vos identifiants Azure ! Ou alors vous ne les avez jamais eu, qui sait ? Dans tous les cas repayez le PackEPSI 100€ !" << endl;
 	joueur->setCagnotte(-100);
 }
 
-void CasePropriete::actionCase(Joueur* joueur, CartePropriete* carteProp) {
+void CasePropriete::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Vous arrivez sur une case propriété !" << endl;
 	carteProp->afficherCarteProp();
 
 	if (carteProp->getProprio() == "0") {
-		cout << "Cette prorpiété n'a pas encore été achetée ! Voulez-vous l'acheter ? Oui(1) ou Non(2)" << endl;
+		cout << "Cette propriété n'a pas encore été achetée ! Voulez-vous l'acheter ? Oui(1) ou Non(2)" << endl;
 		int reponse;
 		cin >> reponse;
 		if (reponse == 1) {
@@ -75,7 +75,7 @@ void CasePropriete::actionCase(Joueur* joueur, CartePropriete* carteProp) {
 	}
 }
 
-void CaseAdmin::actionCase() {
+void CaseAdmin::actionCase(Joueur* joueur, Pioche* piochePotCommun, Pioche* piocheAmnesie, CartePropriete* carteProp) {
 	cout << "Après avoir reçu un mail, vous passez à l'administration. Heureusement c'etait une erreur !" << endl;
 }
 

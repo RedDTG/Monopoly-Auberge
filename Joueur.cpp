@@ -9,7 +9,7 @@
 using namespace std;
 
 
-void color(int t, int f)
+void color3(int t, int f)
 {
     HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(H, f * 16 + t);
@@ -17,9 +17,7 @@ void color(int t, int f)
 
 Joueur::Joueur(vector<Joueur*>* listeJoueurs)
 {
-    cagnotte = 1500;
-    system("PAUSE");
-    system("cls");
+    this->cagnotte = 1500;
 }
 
 string Joueur::getNom() { return this->nom; }
@@ -55,37 +53,15 @@ void Joueur::addLocalisation(int effetDeplacement)
             }
         }
     }
-    
 }
 void Joueur::setLocalisation(int localisation) { this->localisation = localisation; }
 
-
 void Joueur::afficher()
 {
-    color(this->couleur, 0);
+    color3(this->couleur, 0);
     cout << "Nom:"<<this->nom << endl;
     cout << "Cagnotte : " << this->cagnotte << endl;
-}
-
-Bot::Bot(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
-    string listeNom[12] = { "Red","DHB","Le Memelord","Farquaad","Dzenos","Le Dragon","Le roi de la glisse","Nobody","Ysh","Sir Richard Burton","Archange","Airpods" };
-    string nom;
-    int i = rand() % 12;
-    nom = listeNom[i];
-    this->setNom(nom);
-    this->setNumero((listeJoueurs->size() + 1));
-    this->setCouleur(listeJoueurs->size() + 1);
-    cout << "Le bot " << this->getNom() << " a été créé. Il a le numero " << this->getNumero() << endl;
-}
-
-Humain::Humain(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
-    cout << "Entrez votre nom : ";
-    string nom;
-    cin >> nom;
-    this->setNom(nom);
-    this->setNumero((listeJoueurs->size() + 1));
-    this->setCouleur(listeJoueurs->size() + 1);
-    cout << "votre nom est : " << this->getNom() << " et vous etes le joueur numero " << this->getNumero() << ".\n" << endl;
+    color3(15, 0);
 }
 
 int Joueur::detectionGroupe(string nomCouleur, int groupe) {
@@ -99,21 +75,25 @@ int Joueur::detectionGroupe(string nomCouleur, int groupe) {
 
 void Joueur::addCarteProp(CartePropriete* carte) { this->mesProps.push_back(carte); }
 
-void Humain::deroulementTour(plateau* plateauJeu) {
-    int choixJoueur;
-    cout << " 1 - Afficher le plateau\n 2 - Lancer les des\n" << endl;
-    cin >> choixJoueur;
+Bot::Bot(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
+    string listeNom[12] = { "Red","DHB","Le Memelord","Farquaad","Dzenos","Le Dragon","Le roi de la glisse","Nobody","Ysh","Sir Richard Burton","Archange","Airpods" };
+    string nom;
+    int i = rand() % 12;
+    nom = listeNom[i];
+    this->setNom(nom);
+    this->setCouleur(listeJoueurs->size());
+    this->setNumero(listeJoueurs->size());
+    cout << "\nLe bot " << this->getNom() << " a ete cree ! Il a le numero " << this->getNumero() << ".\n" << endl;
 
-    if (choixJoueur == 1) {
-        plateauJeu->afficherPlateau();
-    }
-    else {
-        int deplacement;
-        des* unDe = new des;
-        cout << "Vous lancez les dés !" << endl;
-        deplacement = (unDe->jetDes() + unDe->jetDes());
-        this->addLocalisation(deplacement);
-    }
 }
 
-void Bot::deroulementTour(plateau* plateauJeu) { }
+Humain::Humain(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
+    cout << "Entrez votre nom : ";
+    string nom;
+    cin >> nom;
+    this->setNom(nom);
+    this->setCouleur(listeJoueurs->size());
+    cout << "\nVotre nom est : " << this->getNom() << " et vous etes le joueur numero " << this->getNumero() << ".\n" << endl;
+    system("PAUSE");
+    system("cls");
+}
