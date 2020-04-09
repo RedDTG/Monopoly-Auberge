@@ -23,12 +23,77 @@ Joueur::Joueur(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom)
     this->localisation = 0;
 }
 
+/*void Humain::choixProp(CartePropriete* laCaseProp, ListeJ* ListeJoueurs) {
+    if (laCaseProp->getProprio() == "0") {
+        cout << "Cette propriete n'a pas encore ete achetee !" << endl;
+        cout << "Voulez - vous l'acheter ? Oui(1) ou Non(2)" << endl;
+        cout << "Vous avez " << this->getCagnotte() << endl;
+        int reponse;
+        cin >> reponse;
+        if (reponse == 1) {
+            if (this->getCagnotte() > laCaseProp->getPrix()) {
+                this->setCagnotte((0 - laCaseProp->getPrix()));
+                laCaseProp->setProprio(this->getNom());
+                this->addCarteProp(laCaseProp);
+                cout << "Bravo ! Vous faites l'acquisition de : " << laCaseProp->getNom() << " !" << endl;
+                if (this->getCagnotte() <= 0) { ListeJoueurs->faillite(this); }
+
+            }
+            else { cout << "Vous n'avez pas assez d'argent pour acheter cette propriete !" << endl; }
+        }
+        else { cout << "Vous n'achetez pas cette propriete !" << endl; }
+    }
+    else {
+        int loyer;
+        loyer = laCaseProp->getLoyer();
+        cout << "Cette propriete appartient a " << laCaseProp->getProprio() << endl;
+        cout << "Vous devez donc payer le loyer correspondant !" << endl;
+        if (this->detectionGroupe(laCaseProp->getNomCouleur(), laCaseProp->getGroupe())) {
+            loyer = loyer * 2;
+            cout << "Il possede le groupe complet ! Vous payez double !" << endl;
+        }
+        this->setCagnotte((0 - loyer));
+        cout << "Vous perdez donc " << loyer << " euros !" << endl;
+        if (this->getCagnotte() <= 0) { ListeJoueurs->faillite(this); }
+    }
+}*/
+
+/*void Bot::choixProp(CartePropriete* laCaseProp, ListeJ* ListeJoueurs) {
+    if (laCaseProp->getProprio() == "0") {
+        cout << "Cette propriete n'a pas encore ete achetee !" << endl;
+        if (this->getCagnotte() > laCaseProp->getPrix()) {
+            cout << this->getNom() << " achete la propriete " << laCaseProp->getNom() << " !" << endl;
+            this->setCagnotte((0 - laCaseProp->getPrix()));
+            laCaseProp->setProprio(this->getNom());
+            this->addCarteProp(laCaseProp);
+        }
+        else
+        {
+            cout << this->getNom() << " n'achete pas la propriete." << endl;
+        }
+    }
+    else {
+        int loyer;
+        loyer = laCaseProp->getLoyer();
+        cout << "Cette propriete appartient a " << laCaseProp->getProprio() << endl;
+        cout << this->getNom() << " doit donc payer le loyer correspondant !" << endl;
+        if (this->detectionGroupe(laCaseProp->getNomCouleur(), laCaseProp->getGroupe())) {
+            loyer = loyer * 2;
+            cout << "Il possede le groupe complet !" << this->getNom() <<" paye double !" << endl;
+        }
+        this->setCagnotte((0 - loyer));
+        cout << "Il perdez donc " << loyer << " euros !" << endl;
+        if (this->getCagnotte() <= 0) { ListeJoueurs->faillite(this); }
+    }
+}*/
+
 string Joueur::getNom() { return this->nom; }
 int Joueur::getLocalisation() { return this->localisation; }
 int Joueur::getPenalite() { return this->penalite; }
 int Joueur::getCagnotte() { return cagnotte; }
 int Joueur::getCouleur() { return this->couleur; }
 int Joueur::getNumero() { return this->numero; }
+vector<CartePropriete*> Joueur::getProps() { return this->mesProps; }
 
 void Joueur::setPenalite(int penalite){ this->penalite = penalite; }
 void Joueur::setNom(string nom) { this->nom = nom; }
@@ -63,9 +128,15 @@ void Joueur::afficher()
 {
     color3(this->couleur, 0);
     cout << "\nNom:"<<this->nom << endl;
+    cout << "----------------------" << endl;
     cout << "Cagnotte : " << this->cagnotte << endl;
     cout << "Penalites : " << this->penalite << endl;
     cout << "Localisation : Case " << this->localisation << endl << endl;
+    cout << "----------------------" << endl;
+    for (int i = 0; i < this->getProps().size(); i++) {
+        cout << this->getProps()[i]->getNom() << endl;
+    }
+
     color3(15, 0);
 }
 
