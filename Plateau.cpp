@@ -1,9 +1,9 @@
-#include <algorithm>
 #include <string>
 #include <iostream>
 #include "plateau.h"
 #include "Case.h"
 #include "PiocheProprietes.h"
+#include "des.h"
 using namespace std;
 
 plateau::plateau(vector<CartePropriete*> piocheProp) {
@@ -58,7 +58,6 @@ void plateau::ajouterCase(Case* laCase) {
 
 void plateau::deplacement(Joueur* joueur, int deplacement) {
 	if (deplacement > 0) {
-		cout << "Vous avancez de " << deplacement << " cases." << endl;
 		for (int i = 0; i < deplacement; i++) {
 			joueur->setLocalisation((joueur->getLocalisation() + 1));
 			if (joueur->getLocalisation() == (this->tableau.size()+1)) {
@@ -69,7 +68,6 @@ void plateau::deplacement(Joueur* joueur, int deplacement) {
 		}
 	}
 	else if (deplacement < 0) {
-		cout << "Vous reculez de " << deplacement << " cases." << endl;
 		for (int i = 0; i > deplacement; i--) {
 			joueur->setLocalisation((joueur->getLocalisation() - 1));
 			if (joueur->getLocalisation() == 0) {
@@ -79,6 +77,15 @@ void plateau::deplacement(Joueur* joueur, int deplacement) {
 	}
 }
 
+void plateau::deroulementTour(Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun/*, CartePropriete* carteProp*/) {
+	des* unDe = new des;
+	int roll = (unDe->jetDes() + unDe->jetDes());
+	this->deplacement(joueur, roll);
+	cout << joueur->getNom() << " lance les des et fait " << roll << endl;
+	cout << joueur->getNom() << " avance de " << roll << " cases et tombe sur la case ";
+	this->tableau[joueur->getLocalisation()]->actionCase(joueur, piocheAmnesie, piochePotCommun/*, CartePropriete* carteProp*/);
+}
+
 
 void plateau::afficherPlateau() {
 	cout << "\n\n\n" << endl;
@@ -86,42 +93,39 @@ void plateau::afficherPlateau() {
 	cout << "     +-------------------------------------------------------------------------------------------+     " << endl;
 	cout << "     | BALADE  | Ligne |Amnesie| Ligne | Ligne | CHEZ  |Katorza| Pathe |Beecome| Pathe | ARRIVEE |     " << endl;
 	cout << "     |  PONT   |  C5   |  ???  |   4   |   1   |  DHB  |Cinema |Gaumont|       |Atlntis|EN RETARD|     " << endl;
-	cout << "     |         |       |       |       |       |       |       |       |       |       |         |     " << endl;
+	cout << "     |       20|     21|     22|     23|     24|     25|     26|     27|     28|     29|       30|     " << endl;
 	cout << "     |---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+---------|     " << endl;
 	cout << "     |   KFC   |                                                                       |Game Over|     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       19|                                                                       |       31|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |T. Burger|                                                                       |Tabarnak |     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       18|                                                                       |       32|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |Pot Comm.|                                                                       |Pot Comm.|     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       17|                                                                       |       33|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     | O'Tacos |                                                                       |Meltdown |     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       16|                                                                       |       34|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |WAREHOUSE|                                                                       |L'AUBERGE|     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       15|                                                                       |       35|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |Salle GC |                                                                       | Amnesie |     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       14|                                                                       |       36|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |Cafeteria|                                                                       |  MyDIL  |     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       13|                                                                       |       37|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |MyLearBox|                                                                       |Taxe BDE |     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       12|                                                                       |       38|     " << endl;
 	cout << "     |---------+                                                                       +---------|     " << endl;
 	cout << "     |CoWorking|                                                                       |Salle 219|     " << endl;
-	cout << "     |         |                                                                       |         |     " << endl;
+	cout << "     |       11|                                                                       |       39|     " << endl;
 	cout << "     |---------+-------+-------+-------+-------+-------+-------+-------+-------+-------+---------|     " << endl;
 	cout << "     |         |Debote |Brioche|Amnesie| Coeur | EPSI  | Pack  | Inter |  Pot  |Carrouf|  START  |     " << endl;
-	cout << "     |  ADMIN  |       | Dorée |  ???  |de ble |       | EPSI  |       |Commun |       | <------ |     " << endl;
-	cout << "     |         |       |       |       |       |       |       |       |       |       |         |     " << endl;
+	cout << "     |  ADMIN  |       | Doree |  ???  |de ble |       | EPSI  |       |Commun |       | <------ |     " << endl;
+	cout << "     |       10|      9|      8|      7|      6|      5|      4|      3|      2|      1|        0|     " << endl;
 	cout << "     +-------------------------------------------------------------------------------------------+     " << endl;
 	cout << "\n\n\n" << endl;
 }
 
-void plateau::getCase(int localisation, Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun, CartePropriete* carteProp) {
-	this->tableau.operator[](localisation)->actionCase(joueur, piochePotCommun, piocheAmnesie, carteProp);
-}

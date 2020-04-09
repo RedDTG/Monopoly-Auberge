@@ -3,6 +3,7 @@
 #include <vector>
 #include "CartesPropriete.h"
 #include <iostream>
+#include "ListeNom.h"
 using namespace std;
 
 
@@ -18,7 +19,7 @@ private:
     vector<CartePropriete*> mesProps;
 
 public:
-    Joueur(vector<Joueur*>* listeJoueurs);
+    Joueur(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom);
     
     void setCagnotte(int effetArgent);
     void setLocalisation(int localisation);
@@ -43,11 +44,11 @@ public:
 
 class Humain : public Joueur {
 public:
-    Humain(vector<Joueur*>* listeJoueurs);
+    Humain(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom);
 };
 
 class Bot : public Joueur {
 public:
-    Bot(vector<Joueur*>* listeJoueurs);
+    Bot(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom);
     void acheterCarte(int montant);
 };
