@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <time.h>
 #include "plateau.h"
+#include "ListeJ.h"
 using namespace std;
 
 
@@ -15,9 +16,11 @@ void color3(int t, int f)
     SetConsoleTextAttribute(H, f * 16 + t);
 }
 
-Joueur::Joueur(vector<Joueur*>* listeJoueurs)
+Joueur::Joueur(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom)
 {
     this->cagnotte = 1500;
+    this->penalite = 0;
+    this->localisation = 0;
 }
 
 string Joueur::getNom() { return this->nom; }
@@ -27,7 +30,7 @@ int Joueur::getCagnotte() { return cagnotte; }
 int Joueur::getCouleur() { return this->couleur; }
 int Joueur::getNumero() { return this->numero; }
 
-void Joueur::setPenalite(int penalite){ this->setPenalite(penalite); }
+void Joueur::setPenalite(int penalite){ this->penalite = penalite; }
 void Joueur::setNom(string nom) { this->nom = nom; }
 void Joueur::setNumero(int numero) { this->numero = numero; }
 void Joueur::setCouleur(int couleur) { this->couleur = couleur; }
@@ -59,8 +62,10 @@ void Joueur::setLocalisation(int localisation) { this->localisation = localisati
 void Joueur::afficher()
 {
     color3(this->couleur, 0);
-    cout << "Nom:"<<this->nom << endl;
+    cout << "\nNom:"<<this->nom << endl;
     cout << "Cagnotte : " << this->cagnotte << endl;
+    cout << "Penalites : " << this->penalite << endl;
+    cout << "Localisation : Case " << this->localisation << endl << endl;
     color3(15, 0);
 }
 
@@ -75,25 +80,23 @@ int Joueur::detectionGroupe(string nomCouleur, int groupe) {
 
 void Joueur::addCarteProp(CartePropriete* carte) { this->mesProps.push_back(carte); }
 
-Bot::Bot(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
-    string listeNom[12] = { "Red","DHB","Le Memelord","Farquaad","Dzenos","Le Dragon","Le roi de la glisse","Nobody","Ysh","Sir Richard Burton","Archange","Airpods" };
+Bot::Bot(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom) : Joueur(ListeJoueurs, ListeNom) {
     string nom;
-    int i = rand() % 12;
-    nom = listeNom[i];
+    int i = rand() % ListeNom->getListe().size();
+    nom = ListeNom->getNom(i);
+    ListeNom->delNom(i);
     this->setNom(nom);
-    this->setCouleur(listeJoueurs->size());
-    this->setNumero(listeJoueurs->size());
+    this->setCouleur(ListeJoueurs.size() + 1);
+    this->setNumero(ListeJoueurs.size() + 1);
     cout << "\nLe bot " << this->getNom() << " a ete cree ! Il a le numero " << this->getNumero() << ".\n" << endl;
-
 }
 
-Humain::Humain(vector<Joueur*>* listeJoueurs) : Joueur(listeJoueurs) {
-    cout << "Entrez votre nom : ";
+Humain::Humain(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom) : Joueur(ListeJoueurs, ListeNom) {
+    cout << "Entrez le nom du joueur : ";
     string nom;
     cin >> nom;
     this->setNom(nom);
-    this->setCouleur(listeJoueurs->size());
-    cout << "\nVotre nom est : " << this->getNom() << " et vous etes le joueur numero " << this->getNumero() << ".\n" << endl;
-    system("PAUSE");
-    system("cls");
+    this->setCouleur(ListeJoueurs.size() + 1);
+    this->setNumero(ListeJoueurs.size() + 1);
+    cout << "\nLe nom du joueur est : " << this->getNom() << " et vous etes le joueur numero " << this->getNumero() << ".\n" << endl;
 }

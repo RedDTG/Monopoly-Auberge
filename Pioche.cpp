@@ -56,7 +56,7 @@ void Pioche::tirerUneCarte(Joueur* joueur) {
     cout << endl;
 
     joueur->setCagnotte(effetArgent);
-    joueur->setLocalisation(effetDeplacement);
+    joueur->addLocalisation(effetDeplacement);
     joueur->setPenalite(penalite);
 
     this->defausse.push_back(this->pioche[0]);
