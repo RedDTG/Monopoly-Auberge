@@ -4,6 +4,7 @@
 #include "CartesPropriete.h"
 #include <iostream>
 #include "ListeNom.h"
+
 using namespace std;
 
 
@@ -35,20 +36,22 @@ public:
     int getPenalite();
     int getCouleur();
     int getNumero();
+    vector<CartePropriete*> getProps();
 
+    //virtual void choixProp(CartePropriete* carte, ListeJ* ListeJoueurs) { };
     int detectionGroupe(string nomCouleur, int groupe);
     void addCarteProp(CartePropriete* carte);
-
     void afficher();
 };
 
 class Humain : public Joueur {
 public:
     Humain(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom);
+    //virtual void choixProp(CartePropriete* laCaseProp, ListeJ* ListeJoueurs);
 };
 
 class Bot : public Joueur {
 public:
     Bot(vector<Joueur*> ListeJoueurs, ListeNom* ListeNom);
-    void acheterCarte(int montant);
+    //virtual void choixProp(CartePropriete* laCaseProp, ListeJ* ListeJoueurs);
 };

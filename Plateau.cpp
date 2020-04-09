@@ -60,10 +60,10 @@ void plateau::deplacement(Joueur* joueur, int deplacement) {
 	if (deplacement > 0) {
 		for (int i = 0; i < deplacement; i++) {
 			joueur->setLocalisation((joueur->getLocalisation() + 1));
-			if (joueur->getLocalisation() == (this->tableau.size()+1)) {
+			if (joueur->getLocalisation() == (this->tableau.size())) {
 				joueur->setLocalisation(0);
 				joueur->setCagnotte(200);
-				cout << "Vous passez par la case départ vous gagnez 200€ !" << endl;
+				cout << "Vous passez par la case depart vous gagnez 200 euros !" << endl;
 			}
 		}
 	}
@@ -71,19 +71,19 @@ void plateau::deplacement(Joueur* joueur, int deplacement) {
 		for (int i = 0; i > deplacement; i--) {
 			joueur->setLocalisation((joueur->getLocalisation() - 1));
 			if (joueur->getLocalisation() == 0) {
-				joueur->setLocalisation(this->tableau.size());
+				joueur->setLocalisation(this->tableau.size() - 1);
 			}
 		}
 	}
 }
 
-void plateau::deroulementTour(Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun/*, CartePropriete* carteProp*/) {
+void plateau::deroulementTour(Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun, PiocheProprietes* piocheProp, ListeJ* listeJoueurs) {
 	des* unDe = new des;
 	int roll = (unDe->jetDes() + unDe->jetDes());
 	this->deplacement(joueur, roll);
 	cout << joueur->getNom() << " lance les des et fait " << roll << endl;
 	cout << joueur->getNom() << " avance de " << roll << " cases et tombe sur la case ";
-	this->tableau[joueur->getLocalisation()]->actionCase(joueur, piocheAmnesie, piochePotCommun/*, CartePropriete* carteProp*/);
+	this->tableau[joueur->getLocalisation()]->actionCase(joueur, piocheAmnesie, piochePotCommun, piocheProp, listeJoueurs);
 }
 
 

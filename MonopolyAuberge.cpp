@@ -72,16 +72,15 @@ int main() {
         }
         if (choixMenu == 3) {
 
-            int gagnant = -1;
             plateauJeu->afficherPlateau();
 
-            while (gagnant != 0) {
+            while (listeJoueurs->getListe().size() > 1) {
 
                 for (int i = 0; i < listeJoueurs->getListe().size(); i++) {
                     int choixJoueur = 0;
                     cout << endl << endl;
                     if (listeJoueurs->getListe()[i]->getPenalite() == 0) {
-                        plateauJeu->deroulementTour(listeJoueurs->getListe()[i], piocheAmnesie, piochePotCommun);
+                        plateauJeu->deroulementTour(listeJoueurs->getListe()[i], piocheAmnesie, piochePotCommun, piocheProp, listeJoueurs);
                     }
                     else {
                         cout << "Vous avez " << listeJoueurs->getListe()[i]->getPenalite() << " tours de penalite. Vous ne pouvez pas vous deplacer ce tour-ci." << endl;
@@ -95,13 +94,12 @@ int main() {
                         {
                             listeJoueurs->getListe()[i]->afficher();
                         }
-                        cout << "C'est le tour de " << listeJoueurs->getListe()[i]->getNom() << endl;
+                        cout << "\n\n\nC'est le tour de " << listeJoueurs->getListe()[i]->getNom() << endl;
                         cout << " 1 - Afficher le plateau\n 2 - Afficher stats\n 3 - Finir le tour\n > ";
                         cin >> choixJoueur;
                     }
                 }
             }
-            
         }
         if (choixMenu == 0 || choixMenu > 3)
         {

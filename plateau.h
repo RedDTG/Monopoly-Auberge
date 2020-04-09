@@ -16,6 +16,6 @@ public:
 	void afficherPlateau();
 	void deplacement(Joueur* joueur, int deplacement);
 	void ajouterCase(Case* laCase);
-	void deroulementTour(Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun/*, CartePropriete* carteProp*/);
+	void deroulementTour(Joueur* joueur, Pioche* piocheAmnesie, Pioche* piochePotCommun, PiocheProprietes* piocheProp, ListeJ* listeJoueur);
 };
 

@@ -9,5 +9,6 @@ public:
 	ListeJ();
 	vector<Joueur*> getListe();
 	void addJoueur(Joueur* joueur);
+	void faillite(Joueur* joueur);
 };
 

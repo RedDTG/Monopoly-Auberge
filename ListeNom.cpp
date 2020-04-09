@@ -11,7 +11,6 @@ ListeNom::ListeNom() {
     this->liste.push_back("Nobody");
     this->liste.push_back("Ysh");
     this->liste.push_back("Sir Richard Burton");
-    this->liste.push_back("Red");
 }
 
 vector<string> ListeNom::getListe() { return this->liste; }
